@@ -80,7 +80,8 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    height: 86vh;
+    min-height: 86vh;
+    height: auto;
 }
 
 .titleH2 {
@@ -116,7 +117,8 @@ body {
     display: flex;
     align-items: start;
     justify-content: space-between;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background-color: #F8F8F8;
 }
 
@@ -168,12 +170,13 @@ body {
 }
 
 .section3 {
-    padding: 0px 10vw;
+    padding: 0px 10vw 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 .section3HeaderDiv {
@@ -243,4 +246,57 @@ body {
     color: #FB8F1D;
     text-decoration: none;
     line-height: 28px;
+}
+
+
+
+
+
+.footer {
+    background-color: #F8F8F8;
+    padding: 48px 10vw 36px;
+}
+
+.footerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footerLogoImage {
+    width: 41px;
+    height: 41px;
+}
+
+.footerCopyrightsText {
+    font-size: 17px;
+    color: #848484;
+    margin: 0;
+    font-weight: 300;
+    line-height: 28px;
+    font-family: "Mulish";
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #EAEAEA;
+    margin: 0 0 36px 0;
+}
+
+.footerSocials {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.footerSocialsLink {
+    color: #202336;
+    font-size: 36px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footerSocialsLink:hover {
+    color: #fb901d;
 }
