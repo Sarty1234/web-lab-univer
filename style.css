@@ -294,7 +294,6 @@ body {
     color: #202336;
     font-size: 36px;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 .footerSocialsLink:hover {
