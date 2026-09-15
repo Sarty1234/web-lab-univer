@@ -114,9 +114,8 @@ body {
 .section2 {
     padding: 0vh 10vw;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
-    gap: 60px;
     height: 100vh;
     background-color: #F8F8F8;
 }
@@ -125,23 +124,45 @@ body {
     font-weight: 700;
     font-size: 36px;
     color: #000000;
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', sans-serif;
     line-height: 50px;
+    margin-bottom: 15vh;
+    padding-top: 40px;
 }
 
 .section2Text {
-    font-weight: 300;
-    font-size: 17px;
-    color: #7D7987;
-    font-family: 'Mulish';
-    line-height: 30px;
-    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+    font-family: 'Mulish', sans-serif;
+    line-height: 36px;
+    margin-bottom: 40px;
     max-width: 400px;
+}
+
+
+.titleH4 {
+    font-weight: 700;
+    font-size: 22px;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 0px;
+}
+
+.titleH4 + p {
+    margin-top: 16px;
 }
 
 .section2Image {
     display: flex;
     max-height: 65vh;
     height: 100%;
-    margin-top: 10vh;
+    margin-top: 18vh;
+}
+
+.section2StarsImage {
+    display: flex;
+    max-height: 65vh;
+    height: 5vh;
 }
