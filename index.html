@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>LabWork1-V3</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://rsms.me/">
@@ -17,154 +18,164 @@
     <link rel="icon" type="image/png" href="Images/Logo.png" />
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <a href="#" class="nav__link nav__link--active">Home</a>
-            <a href="#" class="nav__link">Destinations</a>
-            <a href="#" class="nav__link">About</a>
-            <a href="#" class="nav__link">Partner</a>
-        </nav>
-        <section class="header__logo-container">
-            <img class="header__logo" src="Images//Logo.png" alt="Logo" />
-        </section>
-        <section class="header__auth">
-            <a href="#" class="btn btn--outline">Login</a>
-            <a href="#" class="btn btn--filled">Register</a>
-        </section>
-    </header>
-
+    <div style="display: flex; justify-content: center;">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav__link nav__link--active">Home</a>
+                <a href="#" class="nav__link">Destinations</a>
+                <a href="#" class="nav__link">About</a>
+                <a href="#" class="nav__link">Partner</a>
+            </nav>
+            <section class="header__logo-container">
+                <img class="header__logo" src="Images//Logo.png" alt="Logo" />
+            </section>
+            <section class="header__auth">
+                <a href="#" class="btn btn--outline">Login</a>
+                <a href="#" class="btn btn--filled">Register</a>
+            </section>
+        </header>
+    </div>
     <main>
-        <section class="hero">
-            <div class="hero__content">
-                <h2 class="hero__title">
-                    Guides by Thousand
-                    <br>
-                    Sunny
-                </h2>
-                <p class="hero__desc">
-                    Packed with tips and advice from our on-the-ground experts, our city guides app (iOS and Android) is the ultimate resource before and during a trip.
-                </p>
-                <a href="#" class="btn btn--filled btn--hero" style="width: 164px; height: 48px; font-size: 16px; margin: 0px">Download</a>
-            </div>
-
-            <img class="hero__img" src="Images//Thousand-03.png" alt="section 1 image" />
-        </section>
-
-        <section class="testimonials">
-            <div class="testimonials__content">
-                <h3 class="testimonials__title">
-                    Testimonials
-                </h3>
-                <div class="testimonials__body">
-                    <img class="testimonials__rating" src="Images//Stars.png" alt="Stars" />
-                    <p class="testimonials__quote">
-                        “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
+        <div style="display: flex; justify-content: center; padding: 0px 0px 40px;">
+            <section class="hero">
+                <div class="hero__content">
+                    <h2 class="hero__title">
+                        Guides by Thousand
+                        <br>
+                        Sunny
+                    </h2>
+                    <p class="hero__desc">
+                        Packed with tips and advice from our on-the-ground experts, our city guides app (iOS and Android) is the ultimate resource before and during a trip.
                     </p>
+                    <a href="#" class="btn btn--filled btn--hero" style="width: 164px; height: 48px; font-size: 16px; margin: 0px">Download</a>
+                </div>
 
-                    <div class="testimonials__author">
-                        <h4 class="testimonials__author-name">
-                            Edward Newgate
-                        </h4>
+                <img class="hero__img" src="Images//Thousand-03.png" alt="section 1 image" />
+            </section>
+        </div>
 
-                        <p style="font-size: 18px; font-weight: 400; font-family: Inter, sans-serif;">
-                            Founder Circle
+
+        <div style="display: flex; justify-content: center; background-color: #F8F8F8; padding: 0px 0px 40px;">
+            <section class="testimonials">
+                <div class="testimonials__content">
+                    <h3 class="testimonials__title">
+                        Testimonials
+                    </h3>
+                    <div class="testimonials__body">
+                        <img class="testimonials__rating" src="Images//Stars.png" alt="Stars" />
+                        <p class="testimonials__quote">
+                            “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
                         </p>
+
+                        <div class="testimonials__author">
+                            <h4 class="testimonials__author-name">
+                                Edward Newgate
+                            </h4>
+
+                            <p style="font-size: 18px; font-weight: 400; font-family: Inter, sans-serif;">
+                                Founder Circle
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <img class="testimonials__img" src="Images//Portret.png" alt="Portret" />
-        </section>
+                <img class="testimonials__img" src="Images//Portret.png" alt="Portret" />
+            </section>
+        </div>
 
-        <section class="stories">
-            <div class="stories__header">
-                <h3 class="stories__title">
-                    Trending stories
-                </h3>
-                <a href="#" class="stories__link-all" style="color: #FB8F1D; font-weight: 600; vertical-align: middle; font-size: 17px; line-height: 60px;">
-                    View all &gt;
-                </a>
-            </div>
-            <div class="stories__grid">
-                <article class="card">
-                    <div class="card__media">
-                        <img src="Images/card1.png" alt="Card Image" class="card__img">
-                    </div>
-                    <h4 class="card__title">
-                        The many benefits of taking a healing holiday
-                    </h4>
-                    <p class="card__desc">
-                        ‘Helaing holidays’ are on the rise
-                        tohelp maximise your health and happines...
-                    </p>
-                    <a href="#" class="card__link">Read more</a>
-                </article>
+        <div style="display: flex; justify-content: center; padding: 0px 0px 40px;">
+            <section class="stories">
+                <div class="stories__header">
+                    <h3 class="stories__title">
+                        Trending stories
+                    </h3>
+                    <a href="#" class="stories__link-all" style="color: #FB8F1D; font-weight: 600; vertical-align: middle; font-size: 16px;">
+                        View all >
+                    </a>
+                </div>
+                <div class="stories__grid">
+                    <article class="card">
+                        <div class="card__media">
+                            <img src="Images/card1.png" alt="Card Image" class="card__img">
+                        </div>
+                        <h4 class="card__title">
+                            The many benefits of taking a healing holiday
+                        </h4>
+                        <p class="card__desc">
+                            ‘Helaing holidays’ are on the rise
+                            tohelp maximise your health and happines...
+                        </p>
+                        <a href="#" class="card__link">Read more</a>
+                    </article>
 
-                <article class="card">
-                    <div class="card__media">
-                        <img src="Images/card2.png" alt="Card Image" class="card__img">
-                    </div>
-                    <h4 class="card__title">
-                        The best Kyoto restaurant
-                        to try Japanese food
-                    </h4>
-                    <p class="card__desc">
-                        From tofu to teahouses, here’s our guide to Kyoto’s best restaurants
-                        to visit...
-                    </p>
-                    <a href="#" class="card__link">Read more</a>
-                </article>
+                    <article class="card">
+                        <div class="card__media">
+                            <img src="Images/card2.png" alt="Card Image" class="card__img">
+                        </div>
+                        <h4 class="card__title">
+                            The best Kyoto restaurant
+                            to try Japanese food
+                        </h4>
+                        <p class="card__desc">
+                            From tofu to teahouses, here’s our guide to Kyoto’s best restaurants
+                            to visit...
+                        </p>
+                        <a href="#" class="card__link">Read more</a>
+                    </article>
 
-                <article class="card">
-                    <div class="card__media">
-                        <img src="Images/card3.png" alt="Card Image" class="card__img">
-                    </div>
-                    <h4 class="card__title">
-                        Skip Chichen Itza and head
-                        to this remote Yucatan
-                    </h4>
-                    <p class="card__desc">
-                        It’s remote and challenging to get,
-                        but braving the jungle and exploring
-                        these ruins without the...
-                    </p>
-                    <a href="#" class="card__link">Read more</a>
-                </article>
+                    <article class="card">
+                        <div class="card__media">
+                            <img src="Images/card3.png" alt="Card Image" class="card__img">
+                        </div>
+                        <h4 class="card__title">
+                            Skip Chichen Itza and head
+                            to this remote Yucatan
+                        </h4>
+                        <p class="card__desc">
+                            It’s remote and challenging to get,
+                            but braving the jungle and exploring
+                            these ruins without the...
+                        </p>
+                        <a href="#" class="card__link">Read more</a>
+                    </article>
 
-                <article class="card">
-                    <div class="card__media">
-                        <img src="Images/card4.png" alt="Card Image" class="card__img">
-                    </div>
-                    <h4 class="card__title">
-                        Surf’s up at these beginner
-                        spots around the world
-                    </h4>
-                    <p class="card__desc">
-                        If learning to surf has in on your to-
-                        do list for a while, the good news
-                        is: it’s never too late...
-                    </p>
-                    <a href="#" class="card__link">Read more</a>
-                </article>
-            </div>
-        </section>
+                    <article class="card">
+                        <div class="card__media">
+                            <img src="Images/card4.png" alt="Card Image" class="card__img">
+                        </div>
+                        <h4 class="card__title">
+                            Surf’s up at these beginner
+                            spots around the world
+                        </h4>
+                        <p class="card__desc">
+                            If learning to surf has in on your to-
+                            do list for a while, the good news
+                            is: it’s never too late...
+                        </p>
+                        <a href="#" class="card__link">Read more</a>
+                    </article>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer__top">
-            <img src="Images/LogoFooter.png" alt="Logo Image" class="footer__logo">
-            <p class="footer__copyright">©2020 Thousand Sunny. All rights reserved</p>
-        </div>
+    <div style="display: flex; justify-content: center; padding: 0px 0px 0px; background-color: #F8F8F8;">
+        <footer class="footer">
+            <div class="footer__top">
+                <img src="Images/LogoFooter.png" alt="Logo Image" class="footer__logo">
+                <p class="footer__copyright">©2020 Thousand Sunny. All rights reserved</p>
+            </div>
 
-        <hr class="footer__divider">
+            <hr class="footer__divider">
 
-        <div class="footer__socials">
-            <a href="#" aria-label="Twitter" class="footer__social-link"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" aria-label="Facebook" class="footer__social-link"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram" class="footer__social-link"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn" class="footer__social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="YouTube" class="footer__social-link"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-    </footer>
+            <div class="footer__socials">
+                <a href="#" aria-label="Twitter" class="footer__social-link"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook" class="footer__social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" class="footer__social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn" class="footer__social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube" class="footer__social-link"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
