@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
 }
@@ -10,6 +9,11 @@ body {
     padding: 3vh 10vw;
 }
 
+.header__logo {
+    width: 41px;
+    height: 41px;
+}
+
 .nav {
     gap: 35px;
     display: flex;
@@ -18,30 +22,23 @@ body {
     padding: 0;
 }
 
-.navLink {
+.nav__link {
     text-decoration: none;
     font-weight: 400;
     font-size: 15px;
     color: #B8BECD;
     font-family: 'Inter';
-    
 }
 
-.navLinkActive {
+.nav__link--active {
     color: #202336;
     font-weight: 500;
 }
 
-.logo {
-    width: 41px;
-    height: 41px;
-}
-
-.emptyButton {
+.btn {
     display: inline-block;
     box-sizing: border-box;
     border-radius: 8px;
-    color: #fb901d;
     width: 132px;
     height: 44px;
     font-weight: 500;
@@ -51,32 +48,22 @@ body {
     text-align: center;
     text-decoration: none;
     align-content: center;
+    margin: 0px 10px;
+}
+
+.btn--outline {
+    color: #fb901d;
     background-color: white;
     border: 1px solid #fb901d;
-    margin: 0px 10px;
 }
 
-.filledButton {
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 8px;
+.btn--filled {
     color: white;
-    width: 132px;
-    height: 44px;
-    font-weight: 500;
-    font-size: 15px;
-    vertical-align: middle;
-    font-family: 'Inter';
-    text-align: center;
-    text-decoration: none;
-    align-content: center;
     background-color: #fb901d;
     border: 1px solid #fb901d;
-    margin: 0px 10px;
 }
 
-
-.section1 {
+.hero {
     padding: 0vh 10vw;
     display: flex;
     align-items: center;
@@ -86,7 +73,7 @@ body {
     height: auto;
 }
 
-.titleH2 {
+.hero__title {
     font-weight: 700;
     font-size: 36px;
     color: #000000;
@@ -94,7 +81,7 @@ body {
     line-height: 50px;
 }
 
-.section1Text {
+.hero__desc {
     font-weight: 300;
     font-size: 17px;
     color: #7D7987;
@@ -104,17 +91,14 @@ body {
     max-width: 400px;
 }
 
-.section1Image {
+.hero__img {
     display: flex;
     max-width: 500px;
     width: 100%;
     height: auto;
 }
 
-
-
-
-.section2 {
+.testimonials {
     padding: 0vh 10vw;
     display: flex;
     align-items: start;
@@ -124,7 +108,7 @@ body {
     background-color: #F8F8F8;
 }
 
-.titleH3 {
+.testimonials__title {
     font-weight: 700;
     font-size: 36px;
     color: #000000;
@@ -135,7 +119,7 @@ body {
     margin-top: 0;
 }
 
-.section2Text {
+.testimonials__quote {
     font-weight: 400;
     font-size: 24px;
     color: #000000;
@@ -145,8 +129,7 @@ body {
     max-width: 400px;
 }
 
-
-.titleH4 {
+.testimonials__author-name {
     font-weight: 700;
     font-size: 22px;
     color: #000000;
@@ -155,24 +138,24 @@ body {
     margin-bottom: 0px;
 }
 
-.titleH4 + p {
-    margin-top: 16px;
-}
+    .testimonials__author-name + p {
+        margin-top: 16px;
+    }
 
-.section2Image {
+.testimonials__img {
     display: flex;
     max-height: 65vh;
     height: 100%;
     margin-top: 18vh;
 }
 
-.section2StarsImage {
+.testimonials__rating {
     display: flex;
     max-height: 65vh;
     height: 5vh;
 }
 
-.section3 {
+.stories {
     padding: 10px 10vw 80px;
     display: flex;
     flex-direction: column;
@@ -182,7 +165,7 @@ body {
     height: auto;
 }
 
-.section3HeaderDiv {
+.stories__header {
     width: 100%;
     display: flex;
     align-items: center;
@@ -191,23 +174,30 @@ body {
     margin-top: 6vh;
 }
 
-.section3HeaderDiv .titleH3 {
+.stories__title {
+    font-weight: 700;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 36px;
     margin-bottom: 0;
     padding-top: 0;
     line-height: 50px;
+    color: #000000;
+    margin-top: 0;
 }
 
+.stories__link-all {
+    text-decoration: none;
+    font-family: 'Inter';
+}
 
-.flashcardsGrid {
+.stories__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
 }
 
-
-.cardImageDiv {
+.card__media {
     width: 100%;
     height: 175px;
     border-radius: 8px;
@@ -215,15 +205,14 @@ body {
     margin-bottom: 12px;
 }
 
-.cardImage {
+.card__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-
-.cardTitle {
+.card__title {
     font-family: 'Inter', sans-serif;
     font-size: 17px;
     font-weight: 700;
@@ -232,7 +221,7 @@ body {
     margin: 0 0 8px 0;
 }
 
-.cardText {
+.card__desc {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -242,7 +231,7 @@ body {
     flex-grow: 1;
 }
 
-.cardLink {
+.card__link {
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 600;
@@ -251,28 +240,24 @@ body {
     line-height: 28px;
 }
 
-
-
-
-
 .footer {
     background-color: #F8F8F8;
     padding: 48px 10vw 36px;
 }
 
-.footerTop {
+.footer__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
 }
 
-.footerLogoImage {
+.footer__logo {
     width: 41px;
     height: 41px;
 }
 
-.footerCopyrightsText {
+.footer__copyright {
     font-size: 17px;
     color: #848484;
     margin: 0;
@@ -281,24 +266,24 @@ body {
     font-family: "Mulish";
 }
 
-.divider {
+.footer__divider {
     border: none;
     border-top: 1px solid #EAEAEA;
     margin: 0 0 36px 0;
 }
 
-.footerSocials {
+.footer__socials {
     display: flex;
     justify-content: center;
     gap: 32px;
 }
 
-.footerSocialsLink {
+.footer__social-link {
     color: #202336;
     font-size: 24px;
     text-decoration: none;
 }
 
-.footerSocialsLink:hover {
-    color: #fb901d;
-}
+    .footer__social-link:hover {
+        color: #fb901d;
+    }
