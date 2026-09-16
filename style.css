@@ -1,5 +1,6 @@
-body {
 
+body {
+    margin: 0;
 }
 
 .header {
@@ -13,7 +14,8 @@ body {
     gap: 35px;
     display: flex;
     padding-top: 15px;
-    height: 5vh;
+    margin: 0;
+    padding: 0;
 }
 
 .navLink {
@@ -130,6 +132,7 @@ body {
     line-height: 50px;
     margin-bottom: 15vh;
     padding-top: 40px;
+    margin-top: 0;
 }
 
 .section2Text {
@@ -170,7 +173,7 @@ body {
 }
 
 .section3 {
-    padding: 0px 10vw 80px;
+    padding: 10px 10vw 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -292,7 +295,7 @@ body {
 
 .footerSocialsLink {
     color: #202336;
-    font-size: 36px;
+    font-size: 24px;
     text-decoration: none;
 }
 
