@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+
+.btn {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 132px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    vertical-align: middle;
+    font-family: 'Inter';
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    margin: 0px 10px;
+}
+
+.btn--outline {
+    color: #fb901d;
+    background-color: white;
+    border: 1px solid #fb901d;
+}
+
+.btn--filled {
+    color: white;
+    background-color: #fb901d;
+    border: 1px solid #fb901d;
+}
