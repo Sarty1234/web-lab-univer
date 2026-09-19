@@ -30,3 +30,22 @@ body {
     background-color: #fb901d;
     border: 1px solid #fb901d;
 }
+
+
+@media screen and (min-width: 1630px) {
+    .btn {
+        border-radius: 14px;
+        width: 212px;
+        height: 70px;
+        font-size: 22px;
+        margin: 0px 16px;
+    }
+
+    .btn--outline {
+        border: 2px solid #fb901d;
+    }
+
+    .btn--filled {
+        border: 2px solid #fb901d;
+    }
+}

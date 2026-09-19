@@ -1,4 +1,8 @@
-@media screen and (min-width: 1000px) {
+
+
+
+@media screen and (min-width: 1030px)
+{
     .footer {
         padding: 48px 15px 36px;
         width: 1000px;
@@ -48,8 +52,42 @@
         }
 }
 
+@media screen and (min-width: 1630px) {
+    .footer {
+        padding: 78px 15px 58px;
+        width: 1600px;
+    }
 
-@media screen and (min-width: 310px) and (max-width: 1000px) {
+    .footer__top {
+        margin-bottom: 48px;
+    }
+
+    .footer__logo {
+        width: 66px;
+        height: 66px;
+    }
+
+    .footer__copyright {
+        font-size: 26px;
+        line-height: 46px;
+    }
+
+    .footer__divider {
+        border-top: 2px solid #EAEAEA;
+        margin: 0 0 58px 0;
+    }
+
+    .footer__socials {
+        gap: 52px;
+    }
+
+    .footer__social-link {
+        font-size: 38px;
+    }
+}
+
+
+@media screen and (min-width: 310px) and (max-width: 1030px) {
     .footer {
         padding: 48px 15px 36px;
         width: 280px;

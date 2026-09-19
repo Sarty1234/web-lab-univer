@@ -1,4 +1,7 @@
-@media screen and (min-width: 1000px) {
+
+
+@media screen and (min-width: 1030px)
+{
     .hero__div {
         display: flex;
         justify-content: center;
@@ -49,8 +52,42 @@
 }
 
 
+@media screen and (min-width: 1630px) {
+    .hero__div {
+        padding: 0px 0px 64px;
+    }
 
-@media screen and (min-width: 310px) and (max-width: 1000px) {
+    .hero {
+        gap: 96px;
+        width: 1600px;
+    }
+
+    .hero__title {
+        font-size: 58px;
+        line-height: 80px;
+    }
+
+    .hero__desc {
+        font-size: 26px;
+        line-height: 48px;
+        margin-bottom: 48px;
+        max-width: 640px;
+    }
+
+    .hero__img {
+        max-width: 800px;
+    }
+
+    .btn--hero {
+        width: 262px;
+        height: 78px;
+        font-size: 26px;
+    }
+}
+
+
+
+@media screen and (min-width: 310px) and (max-width: 1030px) {
     .hero__div {
         display: flex;
         justify-content: center;

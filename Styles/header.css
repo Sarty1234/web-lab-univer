@@ -1,6 +1,6 @@
 
-
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1030px)
+{
     .header {
         display: flex;
         align-items: center;
@@ -9,31 +9,70 @@
         height: 100px;
         padding: 0px 15px;
     }
+
+    .header__logo {
+        width: 41px;
+        height: 41px;
+    }
+
+    .nav {
+        gap: 35px;
+        display: flex;
+        padding-top: 15px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav__link {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: #B8BECD;
+        font-family: 'Inter';
+    }
+
+
+
+        .nav__link:hover {
+            text-decoration: underline;
+            color: #fb901d;
+            transition-duration: 0.3s;
+        }
+
+    .nav__link--active {
+        color: #202336;
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 1630px) {
+    .header {
+        width: 1600px;
+        height: 160px;
+    }
+
+    .header__logo {
+        width: 66px;
+        height: 66px;
+    }
+
+    .nav {
+        gap: 56px;
+        padding-top: 24px;
+    }
+
+    .nav__link {
+        font-size: 22px;
+    }
 }
 
 
-.header__logo {
-    width: 41px;
-    height: 41px;
-}
 
-.nav {
-    gap: 35px;
-    display: flex;
-    padding-top: 15px;
-    margin: 0;
-    padding: 0;
-}
 
-.nav__link {
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 14px;
-    color: #B8BECD;
-    font-family: 'Inter';
-}
 
-.nav__link--active {
-    color: #202336;
-    font-weight: 500;
+@media screen and (min-width: 310px) and (max-width: 1030px) {
+    .header {
+        display: none;
+    }
+
 }
