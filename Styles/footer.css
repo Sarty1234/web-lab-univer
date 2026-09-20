@@ -87,7 +87,7 @@
 }
 
 
-@media screen and (min-width: 310px) and (max-width: 1030px) {
+@media screen and (min-width: 310px) and (max-width: 630px) {
     .footer {
         padding: 48px 15px 36px;
         width: 280px;
@@ -130,7 +130,7 @@
 
     .footer__social-link {
         color: #202336;
-        font-size: 24px;
+        font-size: 16px;
         text-decoration: none;
     }
 

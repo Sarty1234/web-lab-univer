@@ -87,7 +87,7 @@
 
 
 
-@media screen and (min-width: 310px) and (max-width: 1030px) {
+@media screen and (min-width: 310px) and (max-width: 630px) {
     .hero__div {
         display: flex;
         justify-content: center;

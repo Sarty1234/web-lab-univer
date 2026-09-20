@@ -180,30 +180,31 @@
 
 
 
-@media screen and (min-width: 310px) and (max-width: 1030px) {
+@media screen and (min-width: 310px) and (max-width: 630px) {
     .stories__div {
         display: flex;
         justify-content: center;
-        padding: 0px 0px 40px;
+        padding: 0px 0px 0px;
+        overflow: hidden;
     }
 
     .stories {
-        padding: 10px 15px 10px;
+        padding: 10px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #ffffff;
-        min-height: 700px;
+        min-height: 640px;
         width: 280px;
         height: auto;
     }
 
     .stories__header {
-        width: 100%;
+        width: calc(100% - 32px);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-direction: column;
+        flex-direction: column; /* Keeps headline and "View all" on one row */
         margin-bottom: 60px;
         margin-top: 20px;
     }
@@ -237,17 +238,24 @@
         }
 
     .stories__grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 20px;
+        display: flex; /* Row layout instead of multi-column grid */
+        flex-wrap: nowrap;
+        overflow-x: auto; /* Enables horizontal swipe/scroll */
+        scroll-snap-type: x mandatory; /* Smooth snap to each card */
+        gap: 16px;
         width: 100%;
+        padding: 0 0px 16px; /* Side inset + space for scrollbar */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hides scrollbar on Firefox */
     }
 
     .card {
-        height: 440px;
+        flex: 0 0 82%; /* Shows one card plus an 18% preview of the next */
+        max-width: 260px; /* Prevents cards from growing too large on tablets */
+        height: 420px;
         display: flex;
         flex-direction: column;
-        min-width: 0;
+        scroll-snap-align: start; /* Snaps card neatly to the left edge */
     }
 
     .card__media {
@@ -257,6 +265,7 @@
         overflow: hidden;
         margin-bottom: 12px;
         background-color: #f0f0f0;
+        flex-shrink: 0; /* Keeps image height locked */
     }
 
     .card__img {

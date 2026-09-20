@@ -17,7 +17,12 @@ body {
     text-decoration: none;
     align-content: center;
     margin: 0px 10px;
+    transition-duration: 0.4s;
 }
+
+    .btn:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6)
+    }
 
 .btn--outline {
     color: #fb901d;
