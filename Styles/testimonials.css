@@ -1,4 +1,4 @@
-﻿@media screen and (min-width: 1030px)
+﻿@media screen and (min-width: 630px)
 {
     .testimonials__div {
         display: flex;
@@ -112,6 +112,51 @@
         height: 56px;
     }
 }
+
+@media screen and (max-width: 1030px) {
+    .testimonials__div {
+        padding: 0px 0px 64px;
+    }
+
+    .testimonials {
+        padding: 0 15px;
+        width: 600px;
+    }
+
+    .testimonials__title {
+        font-size: 36px;
+        line-height: 38px;
+        margin-bottom: 40px;
+        padding-top: 60px;
+    }
+
+    .testimonials__quote {
+        font-size: 28px;
+        line-height: 30px;
+        margin-bottom: 34px;
+        max-width: 260px;
+    }
+
+    .testimonials__author-name {
+        font-size: 28px;
+    }
+
+
+        .testimonials__author-name + p {
+            margin-top: 12px;
+            font-size: 24px;
+        }
+
+    .testimonials__img {
+        max-height: 360px;
+        margin-top: 160px;
+    }
+
+    .testimonials__rating {
+        height: 38px;
+    }
+}
+
 
 
 @media screen and (min-width: 310px) and (max-width: 630px)

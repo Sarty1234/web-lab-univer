@@ -1,5 +1,5 @@
 
-@media screen and (min-width: 1030px)
+@media screen and (min-width: 630px)
 {
     .header {
         display: flex;
@@ -18,7 +18,6 @@
     .nav {
         gap: 35px;
         display: flex;
-        padding-top: 15px;
         margin: 0;
         padding: 0;
     }
@@ -58,7 +57,6 @@
 
     .nav {
         gap: 56px;
-        padding-top: 24px;
     }
 
     .nav__link {
@@ -67,6 +65,31 @@
 }
 
 
+
+@media screen and (min-width: 630px) and (max-width: 1030px) {
+    .header {
+        width: 600px;
+        height: 160px;
+    }
+
+    .header__logo {
+        width: 41px;
+        height: 41px;
+    }
+
+    .nav {
+        gap: 10px;
+    }
+
+    .nav__link {
+        font-size: 18px;
+    }
+
+    .btn--nav {
+        width: 100px;
+        margin: 5px;
+    }
+}
 
 
 

@@ -1,7 +1,7 @@
 
 
 
-@media screen and (min-width: 1030px)
+@media screen and (min-width: 630px)
 {
     .footer {
         padding: 48px 15px 36px;
@@ -83,6 +83,39 @@
 
     .footer__social-link {
         font-size: 38px;
+    }
+}
+
+@media screen and (min-width: 630px) and (max-width: 1030px) {
+    .footer {
+        padding: 48px 15px 36px;
+        width: 600px;
+    }
+
+    .footer__top {
+        margin-bottom: 30px;
+    }
+
+    .footer__logo {
+        width: 41px;
+        height: 41px;
+    }
+
+    .footer__copyright {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .footer__divider {
+        margin: 0 0 36px 0;
+    }
+
+    .footer__socials {
+        gap: 32px;
+    }
+
+    .footer__social-link {
+        font-size: 24px;
     }
 }
 

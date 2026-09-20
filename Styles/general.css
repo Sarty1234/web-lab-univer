@@ -54,3 +54,21 @@ body {
         border: 2px solid #fb901d;
     }
 }
+
+@media screen and (min-width: 630px) and (max-width: 1030px) {
+    .btn {
+        border-radius: 8px;
+        width: 140px;
+        height: 42px;
+        font-size: 16px;
+        margin: 0px 16px;
+    }
+
+    .btn--outline {
+        border: 2px solid #fb901d;
+    }
+
+    .btn--filled {
+        border: 2px solid #fb901d;
+    }
+}

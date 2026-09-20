@@ -1,5 +1,5 @@
 
-@media screen and (min-width: 1030px)
+@media screen and (min-width: 630px)
 {
     .stories__div {
         display: flex;
@@ -178,9 +178,7 @@
 }
 
 
-
-
-@media screen and (min-width: 310px) and (max-width: 630px) {
+@media screen and (min-width: 630px) and (max-width: 1030px) {
     .stories__div {
         display: flex;
         justify-content: center;
@@ -195,7 +193,7 @@
         align-items: center;
         background-color: #ffffff;
         min-height: 640px;
-        width: 280px;
+        width: 600px;
         height: auto;
     }
 
@@ -204,7 +202,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-direction: column; /* Keeps headline and "View all" on one row */
+        flex-direction: column;
         margin-bottom: 60px;
         margin-top: 20px;
     }
@@ -238,24 +236,23 @@
         }
 
     .stories__grid {
-        display: flex; /* Row layout instead of multi-column grid */
+        display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto; /* Enables horizontal swipe/scroll */
-        scroll-snap-type: x mandatory; /* Smooth snap to each card */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 16px;
         width: 100%;
-        padding: 0 0px 16px; /* Side inset + space for scrollbar */
+        padding: 0 0px 16px;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Hides scrollbar on Firefox */
     }
 
     .card {
-        flex: 0 0 82%; /* Shows one card plus an 18% preview of the next */
-        max-width: 260px; /* Prevents cards from growing too large on tablets */
+        flex: 0 0 82%;
+        max-width: 260px;
         height: 420px;
         display: flex;
         flex-direction: column;
-        scroll-snap-align: start; /* Snaps card neatly to the left edge */
+        scroll-snap-align: start;
     }
 
     .card__media {
@@ -265,7 +262,139 @@
         overflow: hidden;
         margin-bottom: 12px;
         background-color: #f0f0f0;
-        flex-shrink: 0; /* Keeps image height locked */
+        flex-shrink: 0;
+    }
+
+    .card__img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        border-radius: inherit;
+    }
+
+    .card__title {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 30px;
+        color: #000000;
+        margin: 0 0 8px 0;
+        height: 60px;
+    }
+
+    .card__desc {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        color: #7D7987;
+        margin: 0 0 14px 0;
+    }
+
+    .card__link {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #FB8F1D;
+        text-decoration: none;
+        line-height: 28px;
+        margin-top: auto;
+    }
+
+        .card__link:hover {
+            text-decoration: underline;
+        }
+}
+
+
+
+@media screen and (min-width: 310px) and (max-width: 630px) {
+    .stories__div {
+        display: flex;
+        justify-content: center;
+        padding: 0px 0px 0px;
+        overflow: hidden;
+    }
+
+    .stories {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        min-height: 640px;
+        width: 280px;
+        height: auto;
+    }
+
+    .stories__header {
+        width: calc(100% - 32px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
+
+    .stories__title {
+        font-weight: 700;
+        font-family: 'Playfair Display', sans-serif;
+        font-size: 28px;
+        margin-bottom: 0;
+        padding-top: 0;
+        line-height: 50px;
+        color: #000000;
+        margin-top: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .stories__link-all {
+        text-decoration: none;
+        font-family: 'Inter';
+        text-align: left;
+        width: 100%;
+        color: #FB8F1D;
+        font-weight: 600;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+
+        .stories__link-all:hover {
+            text-decoration: underline;
+        }
+
+    .stories__grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        width: 100%;
+        padding: 0 0px 16px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card {
+        flex: 0 0 82%;
+        max-width: 260px;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        scroll-snap-align: start;
+    }
+
+    .card__media {
+        width: 100%;
+        height: 200px;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+        margin-bottom: 12px;
+        background-color: #f0f0f0;
+        flex-shrink: 0;
     }
 
     .card__img {

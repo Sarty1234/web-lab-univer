@@ -1,6 +1,6 @@
 
 
-@media screen and (min-width: 1030px)
+@media screen and (min-width: 630px)
 {
     .hero__div {
         display: flex;
@@ -85,6 +85,40 @@
     }
 }
 
+
+@media screen and (max-width: 1030px) {
+    .hero__div {
+        padding: 0px 0px 64px;
+    }
+
+    .hero {
+        gap: 10px;
+        width: 600px;
+    }
+
+    .hero__title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    .hero__desc {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 48px;
+        max-width: 640px;
+    }
+
+    .hero__img {
+        max-width: 280px;
+    }
+
+    .btn--hero {
+        width: 140px;
+        height: 42px;
+        font-size: 16px;
+        margin: 0px;
+    }
+}
 
 
 @media screen and (min-width: 310px) and (max-width: 630px) {
