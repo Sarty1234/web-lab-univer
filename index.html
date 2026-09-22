@@ -18,22 +18,32 @@
     <link rel="icon" type="image/png" href="Images/Logo.png" />
 </head>
 <body>
-    <div style="display: flex; justify-content: center;">
-        <header class="header">
-            <nav class="nav">
-                <a href="#" class="nav__link nav__link--active">Home</a>
-                <a href="#" class="nav__link">Destinations</a>
-                <a href="#" class="nav__link">About</a>
-                <a href="#" class="nav__link">Partner</a>
-            </nav>
-            <section class="header__logo-container">
-                <img class="header__logo" src="Images//Logo.png" alt="Logo" />
-            </section>
-            <section class="header__auth">
-                <a href="#" class="btn btn--outline btn--nav">Login</a>
-                <a href="#" class="btn btn--filled btn--nav">Register</a>
-            </section>
-        </header>
+    <div class="header__div">
+        <input type="checkbox" id="burger__toggle" class="burger__toggle" />
+        <div class="burger__div">
+            <label class="burger__icon" for="burger__toggle">
+                <span class="burger__toggle__line burger__toggle__line__1"></span>
+                <span class="burger__toggle__line burger__toggle__line__2"></span>
+                <span class="burger__toggle__line burger__toggle__line__3"></span>
+            </label>
+        </div>
+        <div class="header__floating__div">
+            <header class="header">
+                <nav class="nav">
+                    <a href="#" class="nav__link nav__link--active">Home</a>
+                    <a href="#" class="nav__link">Destinations</a>
+                    <a href="#" class="nav__link">About</a>
+                    <a href="#" class="nav__link">Partner</a>
+                </nav>
+                <section class="header__logo-container">
+                    <img class="header__logo" src="Images//Logo.png" alt="Logo" />
+                </section>
+                <section class="header__auth">
+                    <a href="#" class="btn btn--outline btn--nav">Login</a>
+                    <a href="#" class="btn btn--filled btn--nav">Register</a>
+                </section>
+            </header>
+        </div>
     </div>
     <main>
         <div class="hero__div">
