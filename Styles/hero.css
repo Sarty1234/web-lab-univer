@@ -1,7 +1,4 @@
-
-
-@media screen and (min-width: 630px)
-{
+@media screen and (min-width: 630px) {
     .hero__div {
         display: flex;
         justify-content: center;
@@ -128,15 +125,18 @@
         padding: 0px 0px 40px;
     }
 
-
     .hero {
         padding: 0 15px;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        gap: 10px;
+        gap: 20px;
         height: auto;
         width: 280px;
+    }
+
+    .hero__content {
+        order: 2;
     }
 
     .hero__title {
@@ -158,16 +158,19 @@
     }
 
     .hero__img {
-        display: none;
+        display: flex;
+        order: 1;
+        width: 100%;
+        max-width: 280px;
+        height: auto;
     }
 
     .btn--hero {
-        width: 164px; 
-        height: 48px; 
+        width: 164px;
+        height: 48px;
         font-size: 16px;
         margin: 0px;
         margin-left: 60px;
     }
 }
-
 
