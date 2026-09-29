@@ -7,13 +7,9 @@ class Card {
   }
 }
 
-
-
 const http = require('http');
 let allCards = [];
-let searchNameFilter = "";
 let lastCardId = 0;
-let currentCardEditID = 0;
 
 
 allCards[0] = new Card(0, "AShip 1", 20, 500);
@@ -122,6 +118,19 @@ function ResponseGenerator(url, method, body) {
 const server = http.createServer((req, res) => {
     const { url, method } = req;
     let body = '';
+
+
+    if (req.method === 'OPTIONS') {
+        res.writeHead(204, {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        });
+        res.end();
+        return;
+    }
+
+
     req.on('data', chunk => {
       body += chunk.toString();
     });
@@ -134,7 +143,7 @@ const server = http.createServer((req, res) => {
 
             const { status, payload } = ResponseGenerator(url, method, body);
 
-            res.writeHead(status, { 'Content-Type': 'application/json' });
+            res.writeHead(status, { 'Content-Type': 'application/json', 'access-control-allow-origin': '*' });
             res.end(JSON.stringify(payload));
 
         } catch (error) {

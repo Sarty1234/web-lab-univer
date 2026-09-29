@@ -11,14 +11,27 @@ let allCards = [];
 let searchNameFilter = "";
 let lastCardId = 0;
 let currentCardEditID = 0;
+const url = "http://localhost:8080/";
 
-function GetContent() {
-    let ships = [];
-    ships[0] = new Card(0, "AShip 1", 20, 500);
-    ships[1] = new Card(2, "CShip 2", 50, 200);
-    ships[2] = new Card(5, "BShip 2", 3, 1000);
-    lastCardId = 5;
-    return ships.slice();
+async function GetContent() {
+    const config = {
+       method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        const error = new Error(`Request failed with status ${response.status}`);
+        error.status = response.status;
+        error.data = response.json;
+        throw error;
+    }
+    
+    const json = await response.json();
+    return json;
 }
 
 function UpdateSearchFilter() {
@@ -33,7 +46,8 @@ function SearchFilter(card) {
 
 
 let template = document.getElementById("templateCard");
-function DisplayCards() {
+async function DisplayCards() {
+    allCards = await GetContent();
     let displayCards = allCards.filter(SearchFilter);
     let sortMethod = document.getElementById("sortMethodSelect").value;
     
@@ -58,9 +72,10 @@ function DisplayCards() {
     
     if (!container || !template) return;
     
+    let totalWeight = 0;
     container.innerHTML = "";
     displayCards.forEach((card) => {
-        
+        totalWeight += Number(card.mass);
         const cloneCard = template.cloneNode(true);
 
         cloneCard.removeAttribute("id");
@@ -78,38 +93,102 @@ function DisplayCards() {
         };
         if (deleteButton) deleteButton.onclick = () => {
             DeleteCardByID(card.id);
-            DisplayCards();
         };
 
         container.appendChild(cloneCard);
     });
+    
+    document.getElementById("total__weight__label").textContent = `Total weight: ${totalWeight}t`;
 }
 
-function SaveCardByID() {
+let IsNewCard = 0;
+async function SaveCardByID() {
     if (SaveFormVariablesCheckError()) return;
-    let id = currentCardEditID;
-    let filterResult = allCards.filter((a) => a.id == id);
     let targetCard;
-    if (filterResult.length === 0) {
-        lastCardId += 1;
-        targetCard = new Card(lastCardId, document.getElementById("CreateShipName").value, document.getElementById("CreateShipPassengers").value, document.getElementById("CreateShipMass").value);
-        allCards.push(targetCard);
+    // console.log(filterResult);
+    // filterResult.length == 0 || 
+    if (IsNewCard === 1) {
+        targetCard = new Card(0, document.getElementById("CreateShipName").value, document.getElementById("CreateShipPassengers").value, document.getElementById("CreateShipMass").value);
+        
+        const config = {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(targetCard)
+        };
+    
+        const response = await fetch(url, config);
+    
+        if (!response.ok) {
+            const error = new Error(`Request failed with status ${response.status}`);
+            error.status = response.status;
+            error.data = response.json;
+            throw error;
+        }
+    
+        const json = response.json();
+        
     } else {
+        let filterResult = allCards.filter((a) => a.id == currentCardEditID);
+        
         targetCard = filterResult[0];
         targetCard.name = document.getElementById("CreateShipName").value;
         targetCard.passengers = Number(document.getElementById("CreateShipPassengers").value);
         targetCard.mass = Number(document.getElementById("CreateShipMass").value);
+        
+        const config = {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(targetCard)
+        };
+    
+        const response = await fetch(url, config);
+    
+        if (!response.ok) {
+            const error = new Error(`Request failed with status ${response.status}`);
+            error.status = response.status;
+            error.data = response.json;
+            throw error;
+        }
+    
+        const json = await response.json();
     }
     
-    currentCardEditID = targetCard.id;
-    document.getElementById("CreateShipName").value = targetCard.name; document.getElementById("CreateShipPassengers").value = targetCard.passengers;
-    document.getElementById("CreateShipMass").value = targetCard.mass;
+    // currentCardEditID = targetCard.id;
+    // document.getElementById("CreateShipName").value = targetCard.name; document.getElementById("CreateShipPassengers").value = targetCard.passengers;
+    // document.getElementById("CreateShipMass").value = targetCard.mass;
     
     ShowShipsPage();
 }
 
-function DeleteCardByID(id) {
-    allCards = allCards.filter((a) => a.id != id);
+async function DeleteCardByID(id) {
+    let filt = allCards.filter((a) => a.id == id)
+    if (filt.length === 0) {
+        return;
+    }
+    
+    const config = {
+        method: 'DELETE',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(filt[0])
+    };
+
+    const response = await fetch(url, config);
+
+    if (!response.ok) {
+        const error = new Error(`Request failed with status ${response.status}`);
+        error.status = response.status;
+        error.data = response.json;
+        throw error;
+    }
+
+    const json = await response.json();
+    DisplayCards();
 }
 
 function FillNewShipPage(id) {
@@ -117,8 +196,10 @@ function FillNewShipPage(id) {
     let targetCard;
     if (filterResult.length === 0) {
         targetCard = new Card(lastCardId + 1, "New Ship", 1, 1);
+        IsNewCard = 1;
     } else {
         targetCard = filterResult[0];
+        IsNewCard = 0;
     }
     
     currentCardEditID = targetCard.id;
@@ -155,6 +236,5 @@ function SaveFormVariablesCheckError() {
 document.addEventListener("DOMContentLoaded", function () {
     let template = document.getElementById("templateCard");
     ShowShipsPage();
-    allCards = GetContent();
     DisplayCards();
 });
