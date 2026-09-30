@@ -16,11 +16,33 @@ allCards[0] = new Card(0, "AShip 1", 20, 500);
 allCards[1] = new Card(1, "CShip 2", 50, 200);
 allCards[2] = new Card(2, "BShip 2", 3, 1000);
 
+function SearchFilter(card) {
+    return card.name.toLowerCase().includes(searchNameFilter.toLowerCase());
+}
+
+var searchNameFilter = "";
+function GetAllCards(searchString, sortMethod) {
+    searchNameFilter = searchString;
+    let displayCards = allCards.filter(SearchFilter);
+
+    // by name
+    if (sortMethod == 1) {
+        displayCards.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    } 
+    // by passengers
+    else if (sortMethod == 2) {
+        displayCards.sort((a,b) => b.passengers - a.passengers);
+    }
+    // by mass
+    else if (sortMethod == 3) {
+        displayCards.sort((a,b) => b.mass - a.mass);
+    }
+
+    let totalWeight = displayCards.reduce((acc, card) => acc + Number(card.mass), 0);
 
 
-function GetAllCards() {
-    console.log(`Sended response with ${allCards.length} elements`);
-    return allCards.slice();
+    console.log(`Sended response with ${displayCards.length} elements`);
+    return { 'data': displayCards.slice(), 'totalWeight': totalWeight };
 }
 
 
@@ -62,10 +84,10 @@ function DeleteCardByID(card) {
 
 
 
-function ResponseGenerator(url, method, body) {
+function ResponseGenerator(url, method, body, headers) {
     if (method == 'GET')
     {
-        return { status: 200, payload: GetAllCards() };
+        return { status: 200, payload: GetAllCards(headers['searchstring'], headers['order']) };
     }
 
     if (!body || body.trim() === '') {
@@ -124,7 +146,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(204, {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type'
+            'Access-Control-Allow-Headers': 'Content-Type, searchString, order'
         });
         res.end();
         return;
@@ -141,7 +163,7 @@ const server = http.createServer((req, res) => {
             console.log(`${method} method used for ${url}`);
             console.log(`Body: \n${body}`);
 
-            const { status, payload } = ResponseGenerator(url, method, body);
+            const { status, payload } = ResponseGenerator(url, method, body, req.headers);
 
             res.writeHead(status, { 'Content-Type': 'application/json', 'access-control-allow-origin': '*' });
             res.end(JSON.stringify(payload));
