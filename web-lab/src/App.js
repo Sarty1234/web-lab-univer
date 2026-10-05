@@ -1,20 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import './css/Navbar-Centered-Links-icons.css';
-import './bootstrap/css/bootstrap.min.css';
-import './bootstrap/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import Navbar from './components/Navbar.js'
-import HeroSection from './components/HeroSection.js'
-import CatalogSection from './components/CatalogSection.js'
+import MainPage from './components/MainPage.js'
 import Footer from './components/Footer.js'
 
 function App() {
   return (
-    <div style={{ borderColor: 'rgb(33, 37, 41)' }}>
+    <div>
       <Navbar />
-      <HeroSection />
-      <CatalogSection />
+      <MainPage />
       <Footer />
     </div>
   );

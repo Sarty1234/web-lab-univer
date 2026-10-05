@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
       <div>
@@ -22,13 +24,15 @@ export default function Navbar() {
               <span className="visually-hidden">Toggle navigation</span>
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navcol-3">
-              <ul className="navbar-nav gap-5 mx-auto">
-                <li className="nav-item"><a className="nav-link active" href="#" style={{ fontSize: '18px' }}>Головна</a></li>
-                <li className="nav-item"><a className="nav-link" href="#" style={{ fontSize: '18px' }}>Каталог</a></li>
-                <li className="nav-item"><a className="nav-link" href="#" style={{ fontSize: '18px' }}>Бронювання</a></li>
-              </ul>
-            </div>
+            <Router>
+              <div className="collapse navbar-collapse" id="navcol-3">
+                <ul className="navbar-nav gap-5 mx-auto">
+                  <li className="nav-item"><Link to="/" style={{ textDecoration: 'none' }}><a className="nav-link active" style={{ fontSize: '18px' }}>Головна</a></Link></li>
+                  <li className="nav-item"><Link to="/catalog" style={{ textDecoration: 'none' }}><a className="nav-link" style={{ fontSize: '18px' }}>Каталог</a></Link></li>
+                  <li className="nav-item"><Link to="/card" style={{ textDecoration: 'none' }}><a className="nav-link" style={{ fontSize: '18px' }}>Бронювання</a></Link></li>
+                </ul>
+              </div>
+            </Router>
           </div>
         </nav>
         <hr style={{ color: 'rgb(0,0,0)', borderWidth: '2px' }} />
