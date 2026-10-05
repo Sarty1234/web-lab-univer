@@ -4,74 +4,94 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Web</title>
+    <title>web-lab</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
 </head>
 
-<body style="width: auto;height: 100%;">
-    <div class="col col-lg-12 offset-lg-0" style="width: 100%;height: 100%;">
-        <div class="row" style="height: 12%;background: var(--bs-secondary-bg-subtle);margin: 0;">
-            <div class="col d-flex flex-row justify-content-center" style="padding: 0;">
-                <div class="container d-flex" style="width: 100%;padding: 0;padding-left: 20px;">
-                    <div class="row" style="width: 80%;margin: 0;">
-                        <div class="col-md-4" style="padding: 0;">
-                            <p class="d-flex justify-content-center align-items-center" style="text-align: center;width: 100%;height: 100%;font-size: 24px;color: var(--bs-gray-700);font-weight: bold;">Sunny Inc</p>
-                        </div>
-                        <div class="col-md-4" style="padding: 0;"><button class="btn btn-primary" id="openShipsPageButton" type="button" style="height: 100%;width: 100%;border-radius: 0;border-width: 0px;background: var(--bs-secondary-bg-subtle);font-weight: bold;font-size: 24px;color: rgb(33, 37, 41);padding: 0;" onclick="ShowShipsPage()">Ships</button></div>
-                        <div class="col-md-4" style="padding: 0;"><button class="btn btn-primary" id="openNewShipPageButton" type="button" style="height: 100%;width: 100%;border-radius: 0;border-width: 0px;background: var(--bs-secondary-bg-subtle);font-weight: bold;font-size: 24px;color: rgb(33, 37, 41);padding: 0;" onclick="ShowNewShipPage(-1)">Add New</button></div>
-                    </div>
+<body style="border-color: rgb(33, 37, 41);border-top-color: rgb(33,;border-right-color: 37,;border-bottom-color: 41);border-left-color: 37,;">
+    <div>
+        <nav class="navbar navbar-expand-md bg-body py-3">
+            <div class="container"><a class="navbar-brand d-flex align-items-center" href="#" style="margin-right: 0;"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="width: 120px;height: 60px;background: #ffffff;"><img class="img-fluid" width="1200" height="630" style="width: 100%;height: 100%;border-radius: 5px;" src="assets/img/logo.jpg"></span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-3">
+                    <ul class="navbar-nav gap-5 mx-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#" style="font-size: 18px;">Головна</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-size: 18px;">Каталог</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-size: 18px;">Бронювання</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col d-flex flex-row justify-content-center" style="padding: 0;width: 90%;">
-                <div class="container d-flex justify-content-end" style="padding: 0;padding-right: 20px;">
-                    <div class="row" style="margin: 0;">
-                        <div class="col-md-8 d-flex justify-content-end align-items-center" style="padding: 0;padding-right: 5px;"><input type="text" id="searchFilterInput" style="width: 300px;height: 40px;text-align: right;font-size: 20px;padding-right: 4px;padding-left: 4px;"></div>
-                        <div class="col-md-4 d-flex justify-content-start align-items-center" style="padding: 0;padding-left: 5px;"><button class="btn btn-primary" type="button" style="width: 140px;font-size: 20px;font-weight: bold;background: var(--bs-light);border-width: 2px;border-color: var(--bs-info);color: var(--bs-info);" onclick="UpdateSearchFilter()">Search</button></div>
-                    </div>
-                </div>
+        </nav>
+        <hr style="color: rgb(0,0,0);border-width: 2px;">
+    </div>
+    <div class="container py-4 py-xl-5">
+        <div class="row gy-4 gy-md-0">
+            <div class="col-md-6 col-xl-6">
+                <div class="m-xl-5" style="padding: 0;"><img class="img-fluid object-fit-cover rounded w-100" style="min-height: 300px;" src="assets/img/port.webp"></div>
             </div>
-        </div>
-        <div class="row" id="shipsPage" style="height: 88%;margin: 0;padding: 20px;width: 100%;padding-left: 0px;padding-right: 0px;">
-            <div class="col col-lg-2" style="width: 300px;height: auto;border-right-width: 0px;border-right-style: solid;">
-                <p style="width: 100%;margin: 0;margin-top: 40px;text-align: center;font-weight: bold;font-size: 24px;">Manage Ships</p>
-                <div class="row" style="margin-right: 0;margin-left: 0;margin-top: 40px;">
-                    <div class="col" style="padding: 0;">
-                        <p class="d-flex justify-content-end align-items-center" style="width: 100%;height: 100%;text-align: right;font-weight: bold;font-size: 20px;line-height: 20px;">Sort by:</p>
-                    </div>
-                    <div class="col"><select id="sortMethodSelect" style="font-size: 24px;color: rgb(0, 0, 0);width: 150px;font-weight: bold;border-width: 2px;border-radius: 5px;" onchange="DisplayCards()">
-                            <option value="1" selected="">Name</option>
-                            <option value="2">Passengers</option>
-                            <option value="3">Mass</option>
-                        </select></div>
+            <div class="col-md-6 d-md-flex align-items-md-center">
+                <div style="max-width: 350px;">
+                    <h2 class="text-uppercase fw-bold">Надійний флот для будь-яких завдань на воді</h2>
+                    <p class="my-3">Пропонуємо оренду сучасних вантажних, пасажирських та рибальських суден для приватних подій, бізнесу та морських перевезень. Гнучкі тарифи, перевірений технічний стан та повна юридична підтримка на кожному маршруті.</p>
                 </div>
-                <hr style="color: var(--bs-gray-dark);border-width: 5px;border-radius: 2px;margin-top: 30px;margin-bottom: 0;">
-                <p id="total__weight__label" style="margin-top: 30px;text-align: center;font-size: 20px;line-height: 20px;font-weight: bold;">Total weight: 3000t</p>
-            </div>
-            <div class="col d-flex flex-row justify-content-start flex-wrap" id="cardHolder" style="width: auto;height: auto;padding-top: 20px;">
-                <div id="templateCard" class="card__body" style="width: 220px;height: 300px;border-radius: 5px;border-width: 2px;border-color: var(--bs-secondary);background: var(--bs-gray-200);margin: 5px;"><img class="object-fit-cover card__image" width="186" height="152" style="width: 100%;height: 150px;border-top-left-radius: 5px;border-top-right-radius: 5px;" loading="lazy" src="assets/img/ship.jpg">
-                    <p class="card__name" style="width: 100%;text-align: center;font-weight: bold;height: 49px;margin: 0px;margin-top: 5px;">Royal Navy Destroyer blablabla</p>
-                    <p class="card__passengers" style="margin-bottom: 0;padding-left: 20px;">Passengers: 1000</p>
-                    <p class="card__mass" style="margin-bottom: 0;padding-left: 20px;">Mass: 100t</p>
-                    <div class="row" style="width: 100%;height: auto;margin: 0;padding: 0;margin-top: 5px;">
-                        <div class="col d-flex justify-content-end" style="padding: 0;"><button class="btn btn-primary card__edit__button" type="button" style="border-top-right-radius: 0;border-bottom-right-radius: 0;width: 80%;line-height: 18px;background: var(--bs-gray-200);color: var(--bs-info);font-weight: bold;border-width: 2px;border-color: var(--bs-info);">Edit</button></div>
-                        <div class="col d-flex justify-content-start" style="padding: 0;"><button class="btn btn-primary card__delete__button" type="button" style="border-top-left-radius: 0;border-bottom-left-radius: 0;width: 80%;line-height: 18px;border-width: 2px;border-color: var(--bs-pink);background: var(--bs-gray-200);color: var(--bs-pink);font-weight: bold;">Delete</button></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center justify-content-center" id="newShipPage" style="height: 50%;margin: 0;padding: 20px;width: 100%;padding-left: 0px;max-height: 50%;">
-            <div class="col d-flex flex-column align-items-center" style="width: 20%;max-width: 20%;">
-                <p style="font-weight: bold;font-size: 32px;margin-top: 10px;">Create Ship</p>
-                <p style="font-size: 24px;text-align: left;margin-top: 10px;width: 80%;">Name</p><input type="text" id="CreateShipName" style="width: 80%;">
-                <p style="font-size: 24px;text-align: left;margin-top: 20px;width: 80%;">Passengers</p><input type="number" id="CreateShipPassengers" style="width: 80%;">
-                <p style="text-align: left;font-size: 24px;margin-top: 20px;width: 80%;">Mass</p><input type="number" id="CreateShipMass" style="width: 80%;"><button class="btn btn-primary" type="button" style="margin-top: 40px;width: 200px;background: #ffffff;font-size: 24px;font-weight: bold;color: var(--bs-teal);border-width: 5px;border-color: var(--bs-teal);" onclick="SaveCardByID()">Save</button>
             </div>
         </div>
     </div>
+    <div class="container py-4 py-xl-5">
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div class="card" style="border-width: 0px;">
+                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="770" height="489" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/контейнеровоз.webp">
+                        <h4 class="card-title" style="margin-top: 20px;">Вантажні судна</h4>
+                        <p class="card-text">Контейнеровози, балкери та баржі різної вантажопідйомності для безпечних регіональних і міжнародних логістичних операцій.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="border-width: 0px;">
+                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="500" height="374" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/катер.jpg">
+                        <h4 class="card-title" style="margin-top: 20px;">Пасажирські лайнери</h4>
+                        <p class="card-text">Комфортабельні теплоходи, моторні яхти та круїзні катери для корпоративів, святкових турів, екскурсій і приватного відпочинку.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="border-width: 0px;">
+                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="500" height="348" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/рибальський%20човен.jpg">
+                        <h4 class="card-title" style="margin-top: 20px;">Рибальські шхуни</h4>
+                        <p class="card-text">Повністю оснащені судна зі спеціальним навігаційним і рибопошуковим обладнанням для промислового вилову або спортивної риболовлі.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center" style="height: 100px;margin-top: 40px;">
+            <div class="col d-flex justify-content-center align-items-center"><button class="btn btn-primary" type="button" style="width: 180px;height: 50px;background: rgb(66,66,66);border-radius: 10px;font-weight: bold;font-size: 18px;">Весь флот</button></div>
+        </div>
+    </div>
+    <footer>
+        <hr class="color: rgb(0,0,0);border-width: 2px;" style="border-width: 2px;border-color: rgb(0,0,0);border-top-color: rgb(33,;border-right-color: 37,;border-bottom-color: 41);border-left-color: 37,;">
+        <div class="container" style="padding-top: 2rem;padding-bottom: 2rem;">
+            <div class="row d-flex align-items-center">
+                <div class="col">
+                    <h5 style="font-weight: bold;">Про компанію</h5>
+                    <p>Морська агенція з 10-річним досвідом чартеру суден. Гарантуємо безпеку, цілодобовий супровід та суворе дотримання морського права.</p>
+                </div>
+                <div class="col" style="text-align: center;"><img class="img-fluid" width="1200" height="630" src="assets/img/logo.jpg" style="width: 200px;"></div>
+                <div class="col" style="text-align: right;"><svg class="bi bi-facebook" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 2rem;color: rgb(48,77,138);margin: 10px;">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"></path>
+                    </svg><svg class="bi bi-twitter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 2rem;color: rgb(53,162,244);margin: 10px;">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"></path>
+                    </svg><svg class="bi bi-linkedin" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 2rem;color: rgb(20,123,175);margin: 10px;">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path>
+                    </svg><svg class="bi bi-google" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 2rem;color: rgb(244,67,54);margin: 10px;">
+                        <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"></path>
+                    </svg></div>
+            </div>
+            <hr class="color: rgb(0,0,0);border-width: 2px;" style="border-width: 2px;border-color: rgb(0,0,0);border-top-color: rgb(33,;border-right-color: 37,;border-bottom-color: 41);border-left-color: 37,;">
+            <p style="text-align: center;font-size: small;">© 2026 vport. Всі права захищено.</p>
+        </div>
+    </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/contentFillament.js"></script>
-    <script src="assets/js/styles.js"></script>
 </body>
 
 </html>
