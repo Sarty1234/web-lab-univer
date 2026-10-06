@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>web-lab</title>
+    <title>web-lab catalog</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
 </head>
@@ -24,48 +24,36 @@
         </nav>
         <hr style="color: rgb(0,0,0);border-width: 2px;">
     </div>
-    <div class="container py-4 py-xl-5">
-        <div class="row gy-4 gy-md-0">
-            <div class="col-md-6 col-xl-6">
-                <div class="m-xl-5" style="padding: 0;"><img class="img-fluid object-fit-cover rounded w-100" style="min-height: 300px;" src="assets/img/port.webp"></div>
-            </div>
-            <div class="col-md-6 d-md-flex align-items-md-center">
-                <div style="max-width: 350px;">
-                    <h2 class="text-uppercase fw-bold">Надійний флот для будь-яких завдань на воді</h2>
-                    <p class="my-3">Пропонуємо оренду сучасних вантажних, пасажирських та рибальських суден для приватних подій, бізнесу та морських перевезень. Гнучкі тарифи, перевірений технічний стан та повна юридична підтримка на кожному маршруті.</p>
-                </div>
+    <div id="FilterRowDiv">
+        <div class="container my-4">
+            <div class="row justify-content-between align-items-center">
+                <div class="col flex-row flex-wrap gap-3"><select style="height: 2.4rem;border-radius: 10px;border-width: 2px;width: 160px;padding: 5px;margin-right: 15px;margin-left: 15px;">
+                        <option value="11" selected="">Filter 1</option>
+                    </select><select style="height: 2.4rem;border-radius: 10px;border-width: 2px;width: 160px;padding: 5px;margin-right: 15px;margin-left: 15px;">
+                        <option value="21" selected="">Filter 2</option>
+                    </select><select style="height: 2.4rem;border-radius: 10px;border-width: 2px;width: 160px;padding: 5px;margin-right: 15px;margin-left: 15px;">
+                        <option value="31" selected="">Filter 3</option>
+                    </select></div>
+                <div class="col-auto"><button class="btn btn-primary" type="button" style="border-radius: 10px;background: rgb(255,255,255);color: var(--bs-black);width: 130px;border-width: 4px;border-color: rgb(199,199,199);margin-right: 10px;">Apply</button></div>
             </div>
         </div>
+        <hr class="color: rgb(0,0,0);border-width: 2px;" style="border-width: 2px;border-color: rgb(0,0,0);border-top-color: rgb(33,;border-right-color: 37,;border-bottom-color: 41);border-left-color: 37,;">
     </div>
-    <div class="container py-4 py-xl-5">
-        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col">
-                <div class="card" style="border-width: 0px;">
-                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="770" height="489" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/контейнеровоз.webp">
-                        <h4 class="card-title" style="margin-top: 20px;">Вантажні судна</h4>
-                        <p class="card-text">Контейнеровози, балкери та баржі різної вантажопідйомності для безпечних регіональних і міжнародних логістичних операцій.</p>
+    <div id="CatalogCardsDiv">
+        <div class="row" style="margin-left: 0;margin-right: 0;">
+            <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center" style="margin-bottom: 20px;margin-top: 20px;">
+                <div class="card d-flex h-100 flex-column align-items-center" style="border-radius: 20px;border-width: 1.5px;border-color: rgb(0,0,0);overflow: hidden;width: 280px;">
+                    <div class="card-body d-flex h-100 flex-column align-items-center" style="padding: 0;">
+                        <h5 class="card-title" style="overflow: hidden;background: rgb(238,238,238);width: 100%;padding: 15px;">Item 1</h5><img class="img-fluid mb-3" width="500" height="374" style="height: 140px;width: 180px;margin-top: 6px;border-radius: 5px;" src="assets/img/катер.jpg">
+                        <h3 class="text-center text-dark mb-2 card-subtitle" style="font-weight: bold;padding-right: 15px;padding-left: 15px;">Amazing stuff</h3>
+                        <p class="card-text" style="padding: 15px;font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui</p>
+                        <div class="row" style="padding-right: 25px;padding-left: 15px;padding-bottom: 0px;margin-right: 0;margin-left: 0;margin-bottom: 15px;width: 100%;">
+                            <div class="col" style="padding: 0;"><strong style="font-size: 20px;text-align: left;">Price:</strong></div>
+                            <div class="col text-end" style="padding: 0;"><span style="text-align: right;font-size: 20px;">$2415</span></div>
+                        </div><button class="btn btn-primary" type="button" style="background: rgb(66,66,66);width: 200px;height: 50px;font-size: 18px;border-radius: 16px;margin-bottom: 24px;margin-top: 8px;">View more</button>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="border-width: 0px;">
-                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="500" height="374" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/катер.jpg">
-                        <h4 class="card-title" style="margin-top: 20px;">Пасажирські лайнери</h4>
-                        <p class="card-text">Комфортабельні теплоходи, моторні яхти та круїзні катери для корпоративів, святкових турів, екскурсій і приватного відпочинку.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="border-width: 0px;">
-                    <div class="card-body p-4" style="text-align: center;"><img class="img-fluid" width="500" height="348" style="width: 80%;height: 200px;border-radius: 5px;" src="assets/img/рибальський%20човен.jpg">
-                        <h4 class="card-title" style="margin-top: 20px;">Рибальські шхуни</h4>
-                        <p class="card-text">Повністю оснащені судна зі спеціальним навігаційним і рибопошуковим обладнанням для промислового вилову або спортивної риболовлі.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center align-items-center" style="height: 100px;margin-top: 40px;">
-            <div class="col d-flex justify-content-center align-items-center"><button class="btn btn-primary" type="button" style="width: 180px;height: 50px;background: rgb(66,66,66);border-radius: 10px;font-weight: bold;font-size: 18px;">Весь флот</button></div>
         </div>
     </div>
     <footer>

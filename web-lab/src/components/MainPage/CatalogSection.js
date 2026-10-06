@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CatalogSection() {
   return (
       <div className="container py-4 py-xl-5">
@@ -65,13 +67,15 @@ export default function CatalogSection() {
 
         <div className="row d-flex justify-content-center align-items-center" style={{ height: '100px', marginTop: '40px' }}>
           <div className="col d-flex justify-content-center align-items-center">
-            <button 
-              className="btn btn-primary" 
-              type="button" 
-              style={{ width: '180px', height: '50px', background: 'rgb(66,66,66)', borderRadius: '10px', fontWeight: 'bold', fontSize: '18px' }}
-            >
-              Весь флот
-            </button>
+            <Link to='/catalog'>
+              <a 
+                className="btn btn-primary d-inline-flex align-items-center justify-content-center" 
+                type="button" 
+                style={{ width: '180px', height: '50px', background: 'rgb(66,66,66)', borderRadius: '10px', fontWeight: 'bold', fontSize: '18px' }}
+              >
+                Весь флот
+              </a>
+            </Link>
           </div>
         </div>
       </div>
