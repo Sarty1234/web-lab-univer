@@ -7,15 +7,15 @@ export default function FilterSection() {
     const filterOptions = [
         {
             defaultValue: "11",
-            options: [{ value: "11", label: "Filter 1" }]
+            options: [{ value: "11", label: "Order by name" }, { value: "12", label: "Order by price" }]
         },
         {
             defaultValue: "21",
-            options: [{ value: "21", label: "Filter 2" }]
+            options: [{ value: "21", label: "Any" }, { value: "22", label: "Passenger" }, { value: "23", label: "Transporting" }, { value: "24", label: "Fishing" }]
         },
         {
             defaultValue: "31",
-            options: [{ value: "31", label: "Filter 31" }, { value: "32", label: "Filter 32" }]
+            options: [{ value: "31", label: "Any" }, { value: "32", label: "Light" }, { value: "33", label: "Medium" }, , { value: "33", label: "Heavy" }]
         }
     ];
 

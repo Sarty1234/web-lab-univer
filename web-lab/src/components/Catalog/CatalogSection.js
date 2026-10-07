@@ -7,6 +7,9 @@ export const itemsData = [
   new Item({
     id: 1,
     headerTitle: "Катер",
+    passengers: 10,
+    weight: 10,
+    type: "p",
     title: "Amazing stuff",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
     price: 2415,
@@ -15,7 +18,9 @@ export const itemsData = [
   new Item({
     id: 2,
     headerTitle: "Контейнеровоз",
-    title: "Amazing stuff",
+    passengers: 20,
+    weight: 1000,
+    type: "t",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
     price: 45678,
     imageSrc: "./img/контейнеровоз.webp",
@@ -23,7 +28,9 @@ export const itemsData = [
   new Item({
     id: 3,
     headerTitle: "Рибальський човен",
-    title: "Amazing stuff",
+    passengers: 5,
+    weight: 6,
+    type: "f",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
     price: 215,
     imageSrc: "./img/рибальський човен.jpg",
@@ -74,7 +81,7 @@ export default function CatalogSection() {
                   width="500"
                   height="374"
                   src={item.imageSrc}
-                  alt={item.title}
+                  alt={item.headerTitle}
                   style={{
                     height: "140px",
                     width: "180px",
@@ -92,7 +99,7 @@ export default function CatalogSection() {
                     paddingLeft: "15px",
                   }}
                 >
-                  {item.title}
+                  {item.passengers} seats, {item.weight}t
                 </h3>
 
                 <p
