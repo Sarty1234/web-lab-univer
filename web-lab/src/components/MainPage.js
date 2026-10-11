@@ -4,11 +4,13 @@ import CatalogSection from './MainPage/CatalogSection.js'
 import Catalog from './Catalog.js'
 import SafetyGalery from './ViewMore/SafetyGalery.js'
 import TeamGalery from './ViewMore/TeamGalery.js'
+import { useViewingMore } from './ViewMore/ViewMoreContext.js'
 
 import { Link, Routes, Route } from "react-router-dom";
 
 export default function MainPage() {
-  let viewMore = true;
+  const { viewingMore } = useViewingMore();
+
 
   return (
     <div>
@@ -19,8 +21,8 @@ export default function MainPage() {
             <>
               <HeroSection />
               <CatalogSection />
-              { viewMore ? <SafetyGalery /> : <></> }
-              { viewMore ? <TeamGalery /> : <></> }
+              { viewingMore ? <SafetyGalery /> : <></> }
+              { viewingMore ? <TeamGalery /> : <></> }
             </>
           } 
         />

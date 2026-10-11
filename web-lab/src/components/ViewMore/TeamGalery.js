@@ -21,7 +21,7 @@ export default function TeamGalery() {
                 src="/img/captain.png"
                 alt="Олександр Ковальчук"
               />
-              <h5 className="fw-bold text-primary mb-0 card-title">
+              <h5 className="fw-bold mb-0 card-title">
                 Олександр Ковальчук
               </h5>
               <p className="text-muted mb-2 card-text">
@@ -41,7 +41,7 @@ export default function TeamGalery() {
                 src="/img/Bugalter.jpg"
                 alt="Марина Бойко"
               />
-              <h5 className="fw-bold text-primary mb-0 card-title">
+              <h5 className="fw-bold mb-0 card-title">
                 Марина Бойко
               </h5>
               <p className="text-muted mb-2 card-text">
@@ -61,7 +61,7 @@ export default function TeamGalery() {
                 src="/img/Mechanic.jpg"
                 alt="Дмитро Мельник"
               />
-              <h5 className="fw-bold text-primary mb-0 card-title">
+              <h5 className="fw-bold mb-0 card-title">
                 Дмитро Мельник
               </h5>
               <p className="text-muted mb-2 card-text">
@@ -81,7 +81,7 @@ export default function TeamGalery() {
                 src="/img/chatManager.jpg"
                 alt="Олена Савченко"
               />
-              <h5 className="fw-bold text-primary mb-0 card-title">
+              <h5 className="fw-bold mb-0 card-title">
                 Олена Савченко
               </h5>
               <p className="text-muted mb-2 card-text">

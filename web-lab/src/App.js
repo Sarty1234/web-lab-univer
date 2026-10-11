@@ -4,6 +4,8 @@ import './css/Navbar-Centered-Links-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+import { ViewMoreProvider } from './components/ViewMore/ViewMoreContext.js'
+
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Navbar from './components/Navbar.js'
@@ -15,7 +17,9 @@ function App() {
     <div>
       <Router>
         <Navbar />
-        <MainPage />
+        <ViewMoreProvider>
+          <MainPage />
+        </ViewMoreProvider>
         <Footer />
       </Router>
     </div>

@@ -1,6 +1,13 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 
+import { useViewingMore } from '../ViewMore/ViewMoreContext.js'
+
 export default function CatalogSection() {
+  const { viewingMore, setViewingMore } = useViewingMore();
+
+
+
   return (
       <div className="container py-4 py-xl-5">
         <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
@@ -65,19 +72,22 @@ export default function CatalogSection() {
           </div>
         </div>
 
-        <div className="row d-flex justify-content-center align-items-center" style={{ height: '100px', marginTop: '40px' }}>
-          <div className="col d-flex justify-content-center align-items-center">
-            <Link to='/catalog'>
-              <a 
+        {!viewingMore ? 
+          <div className="row d-flex justify-content-center align-items-center" style={{ height: '100px', marginTop: '40px' }}>
+            <div className="col d-flex justify-content-center align-items-center">
+              <button 
                 className="btn btn-primary d-inline-flex align-items-center justify-content-center" 
                 type="button" 
-                style={{ width: '180px', height: '50px', background: 'rgb(66,66,66)', borderRadius: '10px', fontWeight: 'bold', fontSize: '18px' }}
+                onClick={() => setViewingMore((c) => !c)}
+                style={{ width: '220px', height: '50px', background: 'rgb(66,66,66)', borderRadius: '10px', fontWeight: 'bold', fontSize: '18px' }}
               >
-                Весь флот
-              </a>
-            </Link>
+                Переглянути більше
+              </button>
+            </div>
           </div>
-        </div>
+          : <> </>
+        }
+        
       </div>
   );
 }
