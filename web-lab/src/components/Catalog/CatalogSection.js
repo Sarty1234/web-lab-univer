@@ -6,9 +6,10 @@ import { Item } from "./Item";
 export const itemsData = [
   new Item({
     id: 1,
-    headerTitle: "Катер",
+    headerTitle: "1Катер",
     passengers: 10,
-    weight: 10,
+    weight: 52,
+    weightClass: "m",
     type: "p",
     title: "Amazing stuff",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
@@ -17,9 +18,10 @@ export const itemsData = [
   }),
   new Item({
     id: 2,
-    headerTitle: "Контейнеровоз",
+    headerTitle: "3Контейнеровоз",
     passengers: 20,
     weight: 1000,
+    weightClass: "l",
     type: "t",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
     price: 45678,
@@ -27,9 +29,10 @@ export const itemsData = [
   }),
   new Item({
     id: 3,
-    headerTitle: "Рибальський човен",
+    headerTitle: "2Рибальський човен",
     passengers: 5,
     weight: 6,
+    weightClass: "s",
     type: "f",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
     price: 215,
@@ -39,14 +42,32 @@ export const itemsData = [
 
 
 
-export default function CatalogSection() {
+export default function CatalogSection({searchFilters}) {
+  let visibleItems = [...itemsData]
+
+  if (searchFilters) {
+    if (searchFilters.TypeSelect && searchFilters.TypeSelect !== "21") {
+      visibleItems = visibleItems.filter((item) => item.type === searchFilters.TypeSelect);
+    }
+    
+    if (searchFilters.WeightSelect && searchFilters.WeightSelect !== "31") {
+      visibleItems = visibleItems.filter((item) => item.weightClass === searchFilters.WeightSelect);
+    }
+
+    if (searchFilters.OrderSelect === "11") {
+      visibleItems.sort((a, b) => a.headerTitle.localeCompare(b.headerTitle));
+    } else if (searchFilters.OrderSelect === "12") {
+      visibleItems.sort((a, b) => a.price - b.price);
+    }
+  }
+
   return (
     <div id="CatalogCardsDiv">
       <div className="row" style={{ marginLeft: 0, marginRight: 0, paddingBottom: "100px", paddingTop: "20px" }}>
-        {itemsData.map((item) => (
+        {visibleItems.map((item) => (
           <div
             key={item.id}
-            className="col-12 col-md-6 col-lg-3 d-flex justify-content-center"
+            className="col-12 col-md-6 col-lg-3 d-flex justify-content-center jump-up"
             style={{ marginBottom: "20px", marginTop: "20px" }}
           >
             <div
@@ -99,7 +120,7 @@ export default function CatalogSection() {
                     paddingLeft: "15px",
                   }}
                 >
-                  {item.passengers} seats, {item.weight}t
+                  {item.passengers} місць, {item.weight}т
                 </h3>
 
                 <p
@@ -126,7 +147,7 @@ export default function CatalogSection() {
                 >
                   <div className="col" style={{ padding: 0 }}>
                     <strong style={{ fontSize: "20px", textAlign: "left" }}>
-                      Price:
+                      Ціна:
                     </strong>
                   </div>
                   <div className="col text-end" style={{ padding: 0 }}>

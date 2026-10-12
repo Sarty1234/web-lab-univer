@@ -5,7 +5,7 @@ export default function Navbar() {
       <div>
         <nav className="navbar navbar-expand-md bg-body py-3">
           <div className="container">
-            <a className="navbar-brand d-flex align-items-center" style={{ marginRight: 0 }}>
+            <div className="navbar-brand d-flex align-items-center" style={{ marginRight: 0 }}>
               <span 
                 className="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" 
                 style={{ width: '120px', height: '60px', background: '#ffffff' }}
@@ -21,16 +21,16 @@ export default function Navbar() {
                   />
                 </Link>
               </span>
-            </a>
+            </div>
             <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-3">
               <span className="visually-hidden">Toggle navigation</span>
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navcol-3">
               <ul className="navbar-nav gap-5 mx-auto">
-                <li className="nav-item"><Link to="/" style={{ textDecoration: 'none' }}><a className="nav-link active" style={{ fontSize: '18px' }}>Головна</a></Link></li>
-                <li className="nav-item"><Link to="/catalog" style={{ textDecoration: 'none' }}><a className="nav-link" style={{ fontSize: '18px' }}>Каталог</a></Link></li>
-                <li className="nav-item"><Link to="/card" style={{ textDecoration: 'none' }}><a className="nav-link" style={{ fontSize: '18px' }}>Бронювання</a></Link></li>
+                <li className="nav-item"><Link to="/" style={{ textDecoration: 'none' }}><div className="nav-link active" style={{ fontSize: '18px' }}>Головна</div></Link></li>
+                <li className="nav-item"><Link to="/catalog" style={{ textDecoration: 'none' }}><div className="nav-link" style={{ fontSize: '18px' }}>Каталог</div></Link></li>
+                <li className="nav-item"><Link to="/card" style={{ textDecoration: 'none' }}><div className="nav-link" style={{ fontSize: '18px' }}>Бронювання</div></Link></li>
               </ul>
             </div>
           </div>

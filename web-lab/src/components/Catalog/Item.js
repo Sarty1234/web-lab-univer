@@ -1,9 +1,10 @@
 export class Item {
-  constructor({ id, headerTitle, passengers, weight, type, description, price, imageSrc }) {
+  constructor({ id, headerTitle, passengers, weight, weightClass, type, description, price, imageSrc }) {
     this.id = id;
     this.headerTitle = headerTitle;
     this.passengers = passengers;
     this.weight = weight;
+    this.weightClass = weightClass;
     this.type = type;
     this.description = description;
     this.price = price;

@@ -1,6 +1,6 @@
 export default function TeamGalery() {
   return (
-    <div id="more-content-part-2" className="container py-4 py-xl-5">
+    <div id="more-content-part-2" className="container py-4 py-xl-5 animate-enter">
       <div className="row mb-4 mb-lg-5">
         <div className="col-md-8 col-xl-6 text-center mx-auto">
           <h2>Наша команда</h2>

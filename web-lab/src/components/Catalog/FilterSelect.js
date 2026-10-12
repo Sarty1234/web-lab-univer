@@ -1,4 +1,4 @@
-export default function FilterSelect({ defaultValue, options = [] }) {
+export default function FilterSelect({ defaultValue, onChange, options = [] }) {
   const defaultSelectStyle = {
     height: "2.4rem",
     borderRadius: "10px",
@@ -10,7 +10,7 @@ export default function FilterSelect({ defaultValue, options = [] }) {
   };
 
   return (
-    <select defaultValue={defaultValue} style={defaultSelectStyle}>
+    <select id={options.selectID} defaultValue={defaultValue} onChange={onChange} className="hover-shadow" style={defaultSelectStyle}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

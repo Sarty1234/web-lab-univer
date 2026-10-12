@@ -1,25 +1,47 @@
-import { Link } from "react-router-dom";
+
+import React, { useState } from "react";
 import ApplyButton from "./ApplyButton";
 import FilterSelect from "./FilterSelect";
 
-export default function FilterSection() {
+export default function FilterSection({onSetSearchFilters}) {
 
     const filterOptions = [
         {
+            selectID: "OrderSelect",
             defaultValue: "11",
-            options: [{ value: "11", label: "Order by name" }, { value: "12", label: "Order by price" }]
+            options: [{ value: "11", label: "По назві" }, { value: "12", label: "По ціні" }]
         },
         {
+            selectID: "TypeSelect",
             defaultValue: "21",
-            options: [{ value: "21", label: "Any" }, { value: "22", label: "Passenger" }, { value: "23", label: "Transporting" }, { value: "24", label: "Fishing" }]
+            options: [{ value: "21", label: "Всі" }, { value: "p", label: "Пасажирські" }, { value: "t", label: "Трансортні" }, { value: "f", label: "Рибальські" }]
         },
         {
+            selectID: "WeightSelect",
             defaultValue: "31",
-            options: [{ value: "31", label: "Any" }, { value: "32", label: "Light" }, { value: "33", label: "Medium" }, , { value: "33", label: "Heavy" }]
+            options: [{ value: "31", label: "Всі" }, { value: "s", label: "Легкі" }, { value: "m", label: "Середні" }, { value: "l", label: "Тяжкі" }]
         }
     ];
 
+    const [filters, setFilters] = useState({
+      OrderSelect: "11",
+      TypeSelect: "21",
+      WeightSelect: "31",
+    });
 
+    const handleSelectChange = (selectId, value) => {
+      setFilters((prev) => ({
+        ...prev,
+        [selectId]: value,
+      }));
+    };
+
+    const handleSearchButtonClick = () => {
+      console.log("Applied filters:", filters);
+      if (onSetSearchFilters) {
+        onSetSearchFilters(filters);
+      }
+    };
 
   return (
     <div id="FilterRowDiv">
@@ -29,25 +51,23 @@ export default function FilterSection() {
             {filterOptions.map((filter, index) => (
               <FilterSelect
                 key={index}
-                defaultValue={filter.defaultValue}
+                value={filters[filter.selectID]}
                 options={filter.options}
+                onChange={(e) =>
+                  handleSelectChange(filter.selectID, e.target.value)
+                }
               />
             ))}
           </div>
 
           <div className="col-auto">
-            <ApplyButton />
+            <ApplyButton text={ "Пошук" } onClick={handleSearchButtonClick} />
           </div>
         </div>
       </div>
 
-      <hr
-        style={{
-          borderTop: "2px solid rgb(0, 0, 0)",
-          opacity: 1,
-          margin: 0
-        }}
-      />
+      
+      <hr style={{ color: 'rgb(0,0,0)', borderWidth: '2px' }} />
     </div>
   );
 }

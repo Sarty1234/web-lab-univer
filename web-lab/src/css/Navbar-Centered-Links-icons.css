@@ -65,3 +65,29 @@
   background-color: #e9ecef;
 }
 
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(140px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: fadeInSlideUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hover-shadow {
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.jump-up:hover {
+  transform: translateY(-6px);
+}

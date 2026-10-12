@@ -2,7 +2,7 @@ export default function SafetyGalery() {
   return (
     <div
       id="more-content-part-1"
-      className="container d-flex flex-column align-items-center py-4 py-xl-5"
+      className="container d-flex flex-column align-items-center py-4 py-xl-5 animate-enter"
     >
       <div
         className="row gy-4 row-cols-1 row-cols-md-2 w-100"

@@ -1,7 +1,7 @@
 export default function ApplyButton({ text = "Apply", onClick, style, className = "" }) {
   return (
     <button
-      className={`btn btn-primary ${className}`}
+      className={`btn btn-primary hover-shadow ${className}`}
       type="button"
       onClick={onClick}
       style={{
