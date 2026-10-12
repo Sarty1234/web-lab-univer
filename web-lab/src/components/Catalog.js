@@ -8,6 +8,7 @@ export default function Catalog() {
     OrderSelect: "11",
     TypeSelect: "21",
     WeightSelect: "31",
+    searchText: ""
   });
 
   const handleSetFilters = (newFilters) => {

@@ -27,6 +27,7 @@ export default function FilterSection({onSetSearchFilters}) {
       OrderSelect: "11",
       TypeSelect: "21",
       WeightSelect: "31",
+      searchText: ""
     });
 
     const handleSelectChange = (selectId, value) => {
@@ -58,6 +59,11 @@ export default function FilterSection({onSetSearchFilters}) {
                 }
               />
             ))}
+          </div>
+
+          <div className="col-auto">
+            <input id="searchInput" type="text" style= {{ "height": "36px" }}
+              onChange={(e) => setFilters((prev) => ({ ...prev, searchText: e.target.value }))} />
           </div>
 
           <div className="col-auto">

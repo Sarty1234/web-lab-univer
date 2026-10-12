@@ -46,6 +46,16 @@ export default function CatalogSection({searchFilters}) {
   let visibleItems = [...itemsData]
 
   if (searchFilters) {
+    if (searchFilters.searchText && searchFilters.searchText.trim() !== "") {
+      const clearSearchString = searchFilters.searchText.toLowerCase().trim();
+      visibleItems = visibleItems.filter((item) => {
+        return (item.headerTitle.toLowerCase().includes(clearSearchString) || item.description.toLowerCase().includes(clearSearchString));
+      });
+
+    }
+
+
+
     if (searchFilters.TypeSelect && searchFilters.TypeSelect !== "21") {
       visibleItems = visibleItems.filter((item) => item.type === searchFilters.TypeSelect);
     }
@@ -56,7 +66,8 @@ export default function CatalogSection({searchFilters}) {
 
     if (searchFilters.OrderSelect === "11") {
       visibleItems.sort((a, b) => a.headerTitle.localeCompare(b.headerTitle));
-    } else if (searchFilters.OrderSelect === "12") {
+    }
+    else if (searchFilters.OrderSelect === "12") {
       visibleItems.sort((a, b) => a.price - b.price);
     }
   }
