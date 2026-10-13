@@ -1,5 +1,5 @@
 export class Item {
-  constructor({ id, headerTitle, passengers, weight, weightClass, type, description, price, imageSrc }) {
+  constructor({ id, headerTitle, passengers, weight, weightClass, type, description, priceHour, priceDay, imageSrc }) {
     this.id = id;
     this.headerTitle = headerTitle;
     this.passengers = passengers;
@@ -7,7 +7,8 @@ export class Item {
     this.weightClass = weightClass;
     this.type = type;
     this.description = description;
-    this.price = price;
+    this.priceHour = priceHour;
+    this.priceDay = priceDay;
     this.imageSrc = imageSrc;
   }
 }

@@ -124,7 +124,7 @@ export default function CatalogSection({searchFilters}) {
                     </strong>
                   </div>
                   <div className="col text-end" style={{ padding: 0 }}>
-                    <span style={{ fontSize: "20px" }}>${item.price}</span>
+                    <span style={{ fontSize: "20px" }}>${item.priceDay}</span>
                   </div>
                 </div>
 

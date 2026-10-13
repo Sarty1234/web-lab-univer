@@ -14,12 +14,22 @@ export default function FilterSection({onSetSearchFilters}) {
         {
             selectID: "TypeSelect",
             defaultValue: "21",
-            options: [{ value: "21", label: "Всі" }, { value: "p", label: "Пасажирські" }, { value: "t", label: "Трансортні" }, { value: "f", label: "Рибальські" }]
+            options: [
+              { value: "21", label: "Всі" }, 
+              { value: "Пасажирський", label: "Пасажирський" }, 
+              { value: "Транспортний", label: "Транспортний" }, 
+              { value: "Рибальський", label: "Рибальський" }
+            ]
         },
         {
             selectID: "WeightSelect",
             defaultValue: "31",
-            options: [{ value: "31", label: "Всі" }, { value: "s", label: "Легкі" }, { value: "m", label: "Середні" }, { value: "l", label: "Тяжкі" }]
+            options: [
+              { value: "31", label: "Всі" }, 
+              { value: "Легкий", label: "Легкий" }, 
+              { value: "Середній", label: "Середній" }, 
+              { value: "Тяжкий", label: "Тяжкий" }
+            ]
         }
     ];
 
