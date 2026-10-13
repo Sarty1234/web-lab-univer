@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
 import './css/Navbar-Centered-Links-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import { ViewMoreProvider } from './components/ViewMore/ViewMoreContext.js'
+import { CatalogDataProvider } from "./components/Catalog/CatalogDataContext";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -17,9 +18,11 @@ function App() {
     <div>
       <Router>
         <Navbar />
-        <ViewMoreProvider>
-          <MainPage />
-        </ViewMoreProvider>
+          <ViewMoreProvider>
+          <CatalogDataProvider>
+            <MainPage />
+          </CatalogDataProvider>
+          </ViewMoreProvider>
         <Footer />
       </Router>
     </div>

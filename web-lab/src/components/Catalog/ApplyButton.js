@@ -1,9 +1,21 @@
+
+import { useCatalogDataContext } from "./CatalogDataContext";
+
+
 export default function ApplyButton({ text = "Apply", onClick, style, className = "" }) {
+  const { reloadItems } = useCatalogDataContext();
+
+  let mixedOnClick = () => {
+    reloadItems();
+    console.log("Filtering elements...");
+    onClick();
+  }
+
   return (
     <button
       className={`btn btn-primary hover-shadow ${className}`}
       type="button"
-      onClick={onClick}
+      onClick={mixedOnClick}
       style={{
         borderRadius: "10px",
         background: "rgb(255, 255, 255)",

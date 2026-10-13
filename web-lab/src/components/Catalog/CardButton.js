@@ -1,9 +1,24 @@
-export default function CardButton({ text, onClick, style, className = "" }) {
+
+import { useCatalogDataContext } from "./CatalogDataContext";
+
+
+export default function CardButton({ text, onClick, style, className = "", cardID=0 }) {
+  const { setDisplayElementID } = useCatalogDataContext();
+
+  let mixedOnClick = () => {
+    setDisplayElementID(cardID);
+    console.log("Presses view card", cardID);
+    if (onClick) {
+      onClick();
+    }
+  }
+
+
   return (
     <button
       className={`btn btn-primary hover-shadow ${className}`}
       type="button"
-      onClick={onClick}
+      onClick={mixedOnClick}
       style={{
         background: "rgb(66, 66, 66)",
         width: "200px",

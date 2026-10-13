@@ -1,49 +1,11 @@
 import { Link } from "react-router-dom";
 import CardButton from "./CardButton";
-import { Item } from "./Item";
-
-
-export const itemsData = [
-  new Item({
-    id: 1,
-    headerTitle: "1Катер",
-    passengers: 10,
-    weight: 52,
-    weightClass: "m",
-    type: "p",
-    title: "Amazing stuff",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
-    price: 2415,
-    imageSrc: "./img/катер.jpg",
-  }),
-  new Item({
-    id: 2,
-    headerTitle: "3Контейнеровоз",
-    passengers: 20,
-    weight: 1000,
-    weightClass: "l",
-    type: "t",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
-    price: 45678,
-    imageSrc: "./img/контейнеровоз.webp",
-  }),
-  new Item({
-    id: 3,
-    headerTitle: "2Рибальський човен",
-    passengers: 5,
-    weight: 6,
-    weightClass: "s",
-    type: "f",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
-    price: 215,
-    imageSrc: "./img/рибальський човен.jpg",
-  }),
-];
-
+import { useCatalogDataContext } from "./CatalogDataContext";
 
 
 export default function CatalogSection({searchFilters}) {
-  let visibleItems = [...itemsData]
+  const { items } = useCatalogDataContext();
+  let visibleItems = [...items]
 
   if (searchFilters) {
     if (searchFilters.searchText && searchFilters.searchText.trim() !== "") {
@@ -167,7 +129,7 @@ export default function CatalogSection({searchFilters}) {
                 </div>
 
                 <Link to="/catalog" style={{ textDecoration: "none" }}>
-                  <CardButton text="Замовити" />
+                  <CardButton text="Замовити" cardID={ item.id } />
                 </Link>
               </div>
             </div>
