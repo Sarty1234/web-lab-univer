@@ -19,18 +19,18 @@ export default function CatalogSection({searchFilters}) {
 
 
     if (searchFilters.TypeSelect && searchFilters.TypeSelect !== "21") {
-      visibleItems = visibleItems.filter((item) => item.type === searchFilters.TypeSelect);
+      visibleItems = visibleItems.filter((item) => item.type.teg === searchFilters.TypeSelect);
     }
     
     if (searchFilters.WeightSelect && searchFilters.WeightSelect !== "31") {
-      visibleItems = visibleItems.filter((item) => item.weightClass === searchFilters.WeightSelect);
+      visibleItems = visibleItems.filter((item) => item.weightClass.teg === searchFilters.WeightSelect);
     }
 
     if (searchFilters.OrderSelect === "11") {
       visibleItems.sort((a, b) => a.headerTitle.localeCompare(b.headerTitle));
     }
     else if (searchFilters.OrderSelect === "12") {
-      visibleItems.sort((a, b) => a.price - b.price);
+      visibleItems.sort((a, b) => a.priceHour - b.priceHour);
     }
   }
 
@@ -124,7 +124,7 @@ export default function CatalogSection({searchFilters}) {
                     </strong>
                   </div>
                   <div className="col text-end" style={{ padding: 0 }}>
-                    <span style={{ fontSize: "20px" }}>${item.priceDay}</span>
+                    <span style={{ fontSize: "20px" }}>${item.priceHour}</span>
                   </div>
                 </div>
 

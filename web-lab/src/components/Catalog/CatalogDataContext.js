@@ -1,6 +1,8 @@
 
 import { createContext, useContext, useState } from 'react';
 import { Item } from "./Item";
+import { WeightProperty } from "./WeightProperty";
+import { ClassProperty } from "./ClassProperty";
 
 const itemsData = [
   new Item({
@@ -8,10 +10,10 @@ const itemsData = [
     headerTitle: "1Катер",
     passengers: 10,
     weight: 52,
-    weightClass: "Середній",
-    type: "Пасажирський",
-    title: "Amazing stuff",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
+    weightClass: WeightProperty.Medium,
+    type: ClassProperty.Passengers,
+    description:
+      "Сучасний швидкісний катер для комфортних екскурсій, прибережних прогулянок та пасажирських перевезень невеликих груп.",
     priceHour: 40,
     priceDay: 400,
     imageSrc: "./img/катер.jpg",
@@ -21,9 +23,10 @@ const itemsData = [
     headerTitle: "2Контейнеровоз",
     passengers: 20,
     weight: 1000,
-    weightClass: "Тяжкий",
-    type: "Транспортний",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
+    weightClass: WeightProperty.Heavy,
+    type: ClassProperty.Transport,
+    description:
+      "Потужне великотоннажне вантажне судно, призначене для масштабних морських перевезень стандартних контейнерів і важких вантажів.",
     priceHour: 8000,
     priceDay: 80000,
     imageSrc: "./img/контейнеровоз.webp",
@@ -33,15 +36,15 @@ const itemsData = [
     headerTitle: "3Рибальський човен",
     passengers: 5,
     weight: 6,
-    weightClass: "Легкий",
-    type: "Рибальський",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui",
+    weightClass: WeightProperty.Light,
+    type: ClassProperty.Fishing,
+    description:
+      "Надійне промислове судно з необхідним оснащенням для морської риболовлі, тралення та роботи у прибережних водах.",
     priceHour: 10,
     priceDay: 100,
     imageSrc: "./img/рибальський човен.jpg",
   }),
 ];
-
 
 
 const CatalogDataContext = createContext(itemsData);

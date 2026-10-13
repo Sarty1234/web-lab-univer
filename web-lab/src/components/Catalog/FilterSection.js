@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import ApplyButton from "./ApplyButton";
 import FilterSelect from "./FilterSelect";
+import { WeightProperty } from "./WeightProperty";
+import { ClassProperty } from "./ClassProperty";
 
 export default function FilterSection({onSetSearchFilters}) {
 
@@ -16,9 +18,9 @@ export default function FilterSection({onSetSearchFilters}) {
             defaultValue: "21",
             options: [
               { value: "21", label: "Всі" }, 
-              { value: "Пасажирський", label: "Пасажирський" }, 
-              { value: "Транспортний", label: "Транспортний" }, 
-              { value: "Рибальський", label: "Рибальський" }
+              { value: ClassProperty.Passengers.teg, label: ClassProperty.Passengers.full }, 
+              { value: ClassProperty.Transport.teg, label: ClassProperty.Transport.full }, 
+              { value: ClassProperty.Fishing.teg, label: ClassProperty.Fishing.full }
             ]
         },
         {
@@ -26,9 +28,9 @@ export default function FilterSection({onSetSearchFilters}) {
             defaultValue: "31",
             options: [
               { value: "31", label: "Всі" }, 
-              { value: "Легкий", label: "Легкий" }, 
-              { value: "Середній", label: "Середній" }, 
-              { value: "Тяжкий", label: "Тяжкий" }
+              { value: WeightProperty.Light.teg, label: WeightProperty.Light.full }, 
+              { value: WeightProperty.Medium.teg, label: WeightProperty.Medium.full }, 
+              { value: WeightProperty.Heavy.teg, label: WeightProperty.Heavy.full }
             ]
         }
     ];

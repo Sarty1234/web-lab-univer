@@ -4,9 +4,10 @@ import CatalogSection from './MainPage/CatalogSection.js'
 import Catalog from './Catalog.js'
 import SafetyGalery from './ViewMore/SafetyGalery.js'
 import TeamGalery from './ViewMore/TeamGalery.js'
+import ItemPage from './ItemPage.js'
 import { useViewingMore } from './ViewMore/ViewMoreContext.js'
 
-import { Link, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 export default function MainPage() {
   const { viewingMore } = useViewingMore();
@@ -27,6 +28,7 @@ export default function MainPage() {
           } 
         />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/about-ship" element={<ItemPage />} />
       </Routes>
     </div>
   );

@@ -30,7 +30,7 @@ export default function Navbar() {
               <ul className="navbar-nav gap-5 mx-auto">
                 <li className="nav-item"><Link to="/" style={{ textDecoration: 'none' }}><div className="nav-link active" style={{ fontSize: '18px' }}>Головна</div></Link></li>
                 <li className="nav-item"><Link to="/catalog" style={{ textDecoration: 'none' }}><div className="nav-link" style={{ fontSize: '18px' }}>Каталог</div></Link></li>
-                <li className="nav-item"><Link to="/card" style={{ textDecoration: 'none' }}><div className="nav-link" style={{ fontSize: '18px' }}>Бронювання</div></Link></li>
+                <li className="nav-item"><Link to="/about-ship" style={{ textDecoration: 'none' }}><div className="nav-link" style={{ fontSize: '18px' }}>Бронювання</div></Link></li>
               </ul>
             </div>
           </div>
