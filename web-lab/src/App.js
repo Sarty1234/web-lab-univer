@@ -5,12 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import { ViewMoreProvider } from './components/ViewMore/ViewMoreContext.js'
-import { CatalogDataProvider } from "./components/Catalog/CatalogDataContext";
+import { CatalogDataProvider } from "./components/CatalogPage/CatalogDataContext";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from './components/Navbar.js'
-import MainPage from './components/MainPage.js'
+import MainPage from './Pages/MainPage.js'
+import CatalogPage from './Pages/CatalogPage.js'
+import ItemPage from './Pages/ItemPage.js'
 import Footer from './components/Footer.js'
 
 function App() {
@@ -18,11 +20,20 @@ function App() {
     <div>
       <Router>
         <Navbar />
-          <ViewMoreProvider>
-          <CatalogDataProvider>
-            <MainPage />
-          </CatalogDataProvider>
-          </ViewMoreProvider>
+
+        <ViewMoreProvider>
+        <CatalogDataProvider>
+          
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/about-ship" element={<ItemPage />} />
+          </Routes>
+
+          
+        </CatalogDataProvider>
+        </ViewMoreProvider>
+
         <Footer />
       </Router>
     </div>

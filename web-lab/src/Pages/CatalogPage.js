@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
-import FilterSection from './Catalog/FilterSection.js'
-import CatalogSection from './Catalog/CatalogSection.js'
+import FilterSection from '../components/CatalogPage/FilterSection.js'
+import CatalogSection from '../components/CatalogPage/CatalogSection.js'
 
-export default function Catalog() {
+export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState({
     OrderSelect: "11",
     TypeSelect: "21",

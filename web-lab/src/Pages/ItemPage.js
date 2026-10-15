@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCatalogDataContext } from "./Catalog/CatalogDataContext";
+import { useCatalogDataContext } from "../components/CatalogPage/CatalogDataContext";
 
 export default function ItemPage() {
   const { items, displayElementID } = useCatalogDataContext();
