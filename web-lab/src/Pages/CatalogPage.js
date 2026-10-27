@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import FilterSection from '../components/CatalogPage/FilterSection.js'
 import CatalogSection from '../components/CatalogPage/CatalogSection.js'
 import { Item } from "../components/CatalogPage/Item";
+import { useCatalogDataContext } from '../components/CatalogPage/CatalogDataContext.js';
 
 export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState({
@@ -15,7 +16,7 @@ export default function CatalogPage() {
   });
 
 
-  const [shipData, setShipData] = useState([]);
+  const { setItems } = useCatalogDataContext();
   useEffect(() => {
     refreshShipData();
   }, []);
@@ -26,14 +27,14 @@ export default function CatalogPage() {
     if (search) {
       request += "&search=" + search;
     }
-    if (order) {
-      request += "&order=" + order;
+    if (order && order.toString() !== "11") {
+      request += "&order=" + order.toString();
     }
-    if (type) {
-      request += "&type=" + type;
+    if (type && type.toString() !== "0") {
+      request += "&type=" + type.toString();
     }
-    if (weight_class) {
-      request += "&weight_class=" + weight_class;
+    if (weight_class && weight_class.toString() !== "0") {
+      request += "&weight_class=" + weight_class.toString();
     }
 
     axios
@@ -51,7 +52,7 @@ export default function CatalogPage() {
             priceDay: item.price_day,
             imageSrc: item.image_src,
           }));
-        setShipData(shipObjects); 
+        setItems(shipObjects); 
         console.log(shipObjects);
       })
       .catch((err) => console.error(err));
@@ -61,7 +62,7 @@ export default function CatalogPage() {
     console.log("Set search filters:", newFilters);
 
     setSearchFilters(newFilters);
-    refreshShipData(newFilters.searchText);
+    refreshShipData(newFilters.searchText, newFilters.OrderSelect, newFilters.TypeSelect, newFilters.WeightSelect);
   };
 
 

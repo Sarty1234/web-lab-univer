@@ -15,30 +15,30 @@ export default function FilterSection({onSetSearchFilters}) {
         },
         {
             selectID: "TypeSelect",
-            defaultValue: "21",
+            defaultValue: 0,
             options: [
-              { value: "21", label: "Всі" }, 
-              { value: ClassProperty.Passengers.teg, label: ClassProperty.Passengers.full }, 
-              { value: ClassProperty.Transport.teg, label: ClassProperty.Transport.full }, 
-              { value: ClassProperty.Fishing.teg, label: ClassProperty.Fishing.full }
+              { value: 0, label: "Всі" }, 
+              { value: 1, label: ClassProperty.Passengers.full }, 
+              { value: 2, label: ClassProperty.Transport.full }, 
+              { value: 3, label: ClassProperty.Fishing.full }
             ]
         },
         {
             selectID: "WeightSelect",
-            defaultValue: "31",
+            defaultValue: 0,
             options: [
-              { value: "31", label: "Всі" }, 
-              { value: WeightProperty.Light.teg, label: WeightProperty.Light.full }, 
-              { value: WeightProperty.Medium.teg, label: WeightProperty.Medium.full }, 
-              { value: WeightProperty.Heavy.teg, label: WeightProperty.Heavy.full }
+              { value: 0, label: "Всі" }, 
+              { value: 1, label: WeightProperty.Light.full }, 
+              { value: 2, label: WeightProperty.Medium.full }, 
+              { value: 3, label: WeightProperty.Heavy.full }
             ]
         }
     ];
 
     const [filters, setFilters] = useState({
       OrderSelect: "11",
-      TypeSelect: "21",
-      WeightSelect: "31",
+      TypeSelect: 0,
+      WeightSelect: 0,
       searchText: ""
     });
 

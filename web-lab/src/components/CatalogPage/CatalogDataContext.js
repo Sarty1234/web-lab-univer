@@ -52,14 +52,8 @@ export function CatalogDataProvider({ children }) {
   const [items, setItems] = useState(itemsData);
   const [displayElementID, setDisplayElementID] = useState(2);
 
-  const reloadItems = () => {
-    console.log("Reloading CatalogDataContext...");
-    setItems([...itemsData]);
-    setDisplayElementID(2);
-  };
-
   return (
-    <CatalogDataContext.Provider value={{ items, reloadItems, displayElementID, setDisplayElementID }}>
+    <CatalogDataContext.Provider value={{ items, setItems, displayElementID, setDisplayElementID }}>
       {children}
     </CatalogDataContext.Provider>
   );

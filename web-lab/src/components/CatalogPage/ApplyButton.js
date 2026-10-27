@@ -1,12 +1,9 @@
 
-import { useCatalogDataContext } from "./CatalogDataContext";
 
 
 export default function ApplyButton({ text = "Apply", onClick, style, className = "" }) {
-  const { reloadItems } = useCatalogDataContext();
 
   let mixedOnClick = () => {
-    reloadItems();
     console.log("Filtering elements...");
     onClick();
   }
