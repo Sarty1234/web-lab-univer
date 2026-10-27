@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalogDataContext } from "../components/CatalogPage/CatalogDataContext";
+import { WeightProperty } from "../components/CatalogPage/WeightProperty";
+import { ClassProperty } from "../components/CatalogPage/ClassProperty";
 
 export default function ItemPage() {
   const { items, displayElementID } = useCatalogDataContext();
@@ -14,6 +16,7 @@ export default function ItemPage() {
   const count = Math.max(0, Number(rentDuration) || 0);
   const pricePerTimeUnit = rentTimeUnit === "d" ? item.priceDay : item.priceHour;
   const rentPrice = count * pricePerTimeUnit;
+
 
 
   return (
@@ -32,25 +35,25 @@ export default function ItemPage() {
           <div className="d-flex gap-2 mb-3">
             <span
               style={{
-                background: item.type.color,
+                background: ClassProperty.list[item.type].color,
                 color: '#ffffff',
                 fontWeight: 'bold',
                 padding: '5px 15px',
                 borderRadius: '13px',
               }}
             >
-              { item.type.full }
+              { ClassProperty.list[item.type].full }
             </span>
             <span
               style={{
-                background: item.weightClass.color,
+                background: WeightProperty.list[item.weightClass].color,
                 color: '#ffffff',
                 fontWeight: 'bold',
                 padding: '5px 15px',
                 borderRadius: '13px',
               }}
             >
-              { item.weightClass.full }
+              { WeightProperty.list[item.weightClass].full }
             </span>
           </div>
 

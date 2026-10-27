@@ -62,7 +62,6 @@ export default function CatalogPage() {
 
     setSearchFilters(newFilters);
     refreshShipData(newFilters.searchText);
-    console.log(newFilters.searchText);
   };
 
 

@@ -2,6 +2,7 @@ export class WeightProperty {
   static Light = new WeightProperty('s', 'Легкий', 'var(--bs-teal)');
   static Medium = new WeightProperty('m', 'Середній', 'var(--bs-warning)');
   static Heavy = new WeightProperty('l', 'Тяжкий', 'var(--bs-danger)');
+  static list = { 1: this.Light, 2: this.Medium, 3: this.Heavy }
 
   constructor(teg, full, color) {
     this.teg = teg;
