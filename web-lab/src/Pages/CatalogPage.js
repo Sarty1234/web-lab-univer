@@ -6,6 +6,7 @@ import FilterSection from '../components/CatalogPage/FilterSection.js'
 import CatalogSection from '../components/CatalogPage/CatalogSection.js'
 import { Item } from "../components/CatalogPage/Item";
 import { useCatalogDataContext } from '../components/CatalogPage/CatalogDataContext.js';
+import LoadingSpinner from '../components/CatalogPage/LoadingSpinner.js';
 
 export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState({
@@ -16,13 +17,16 @@ export default function CatalogPage() {
   });
 
 
+  const [loading, setLoading] = useState(false);
   const { setItems } = useCatalogDataContext();
   useEffect(() => {
     refreshShipData();
   }, []);
 
-  const refreshShipData = (search, order, type, weight_class) => {
+  const refreshShipData = async (search, order, type, weight_class) => {
+    setLoading(true);
     let request = "http://127.0.0.1:8000/ships?";
+    const wait = await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (search) {
       request += "&search=" + search;
@@ -55,7 +59,10 @@ export default function CatalogPage() {
         setItems(shipObjects); 
         console.log(shipObjects);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   const handleSetFilters = (newFilters) => {
@@ -67,9 +74,14 @@ export default function CatalogPage() {
 
 
   return (
-    <div>
+    <div style={{ minHeight: '1000px' }}>
       <FilterSection onSetSearchFilters={handleSetFilters}/>
-      <CatalogSection searchFilters={searchFilters}/>
+      {
+        loading ? 
+        (<LoadingSpinner/>) 
+        : 
+        (<CatalogSection searchFilters={searchFilters}/>)
+      }
     </div>
   );
 }
