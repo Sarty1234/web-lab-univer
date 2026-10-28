@@ -7,6 +7,7 @@ import CatalogSection from '../components/CatalogPage/CatalogSection.js'
 import { Item } from "../components/CatalogPage/Item";
 import { useCatalogDataContext } from '../components/CatalogPage/CatalogDataContext.js';
 import LoadingSpinner from '../components/CatalogPage/LoadingSpinner.js';
+import NoContent from '../components/CatalogPage/NoContent.js';
 
 export default function CatalogPage() {
   const [searchFilters, setSearchFilters] = useState({
@@ -17,14 +18,14 @@ export default function CatalogPage() {
   });
 
 
-  const [loading, setLoading] = useState(false);
+  const [contentLoadingState, setContentLoadingState] = useState("ok");
   const { setItems } = useCatalogDataContext();
   useEffect(() => {
     refreshShipData();
   }, []);
 
   const refreshShipData = async (search, order, type, weight_class) => {
-    setLoading(true);
+    setContentLoadingState("loading");
     let request = "http://127.0.0.1:8000/ships?";
     const wait = await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -58,10 +59,14 @@ export default function CatalogPage() {
           }));
         setItems(shipObjects); 
         console.log(shipObjects);
+        setContentLoadingState("ok");
       })
-      .catch((err) => console.error(err))
+      .catch((err) => {
+        console.error(err)
+        setContentLoadingState("error");
+      })
       .finally(() => {
-        setLoading(false);
+        // setContentLoadingState("ok");
       });
   }
 
@@ -76,12 +81,12 @@ export default function CatalogPage() {
   return (
     <div style={{ minHeight: '1000px' }}>
       <FilterSection onSetSearchFilters={handleSetFilters}/>
-      {
-        loading ? 
-        (<LoadingSpinner/>) 
-        : 
-        (<CatalogSection searchFilters={searchFilters}/>)
-      }
+
+      
+
+      { contentLoadingState === "ok" && <CatalogSection searchFilters={searchFilters}/> }
+      { contentLoadingState === "loading" && <LoadingSpinner/> }
+      { contentLoadingState === "error" && <NoContent/> }
     </div>
   );
 }
