@@ -1,7 +1,7 @@
 
 
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import FilterSection from '../components/CatalogPage/FilterSection.js'
 import CatalogSection from '../components/CatalogPage/CatalogSection.js'
 import { Item } from "../components/CatalogPage/Item";
@@ -24,9 +24,15 @@ export default function CatalogPage() {
     refreshShipData();
   }, []);
 
+  const logPoint = useCallback((text) => {
+    console.log(text);
+  }, []);
+
   const refreshShipData = async (search, order, type, weight_class) => {
     setContentLoadingState("loading");
-    let request = "http://127.0.0.1:8000/ships?";
+    const apiUrl = process.env.REACT_APP_API_URL
+    let request = apiUrl + "/ships?";
+    logPoint(request);
     const wait = await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (search) {
@@ -62,7 +68,7 @@ export default function CatalogPage() {
         setContentLoadingState("ok");
       })
       .catch((err) => {
-        console.error(err)
+        console.error(err);
         setContentLoadingState("error");
       })
       .finally(() => {

@@ -14,6 +14,7 @@ import MainPage from './Pages/MainPage.js'
 import CatalogPage from './Pages/CatalogPage.js'
 import ItemPage from './Pages/ItemPage.js'
 import Footer from './components/Footer.js'
+import ShoppingCart from './Pages/ShoppingCart.js';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/about-ship" element={<ItemPage />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
           </Routes>
 
           
