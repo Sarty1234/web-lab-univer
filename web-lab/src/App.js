@@ -15,6 +15,8 @@ import CatalogPage from './Pages/CatalogPage.js'
 import ItemPage from './Pages/ItemPage.js'
 import Footer from './components/Footer.js'
 import ShoppingCart from './Pages/ShoppingCart.js';
+import { Provider } from 'react-redux';
+import { store } from "./redux/store.js"
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Navbar />
 
         <ViewMoreProvider>
+        <Provider store={store}>
         <CatalogDataProvider>
           
           <Routes>
@@ -34,6 +37,7 @@ function App() {
 
           
         </CatalogDataProvider>
+        </Provider>
         </ViewMoreProvider>
 
         <Footer />

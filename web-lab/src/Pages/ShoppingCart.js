@@ -1,14 +1,21 @@
 
-import { ItemWithDates } from "../components/ShoppingCartPage/ItemWithDates";
 import OrderCard from "../components/ShoppingCartPage/OrderCard";
-import { useCatalogDataContext } from "../components/CatalogPage/CatalogDataContext";
 import { Link } from "react-router-dom";
+
+import { useSelector } from "react-redux";
 
 
 export default function ShoppingCart() {
-  const { items } = useCatalogDataContext();
-  let notVisibleItems = [...items];
-  const visibleItems = notVisibleItems.map(aObj => new ItemWithDates(aObj, true, 2));
+  const visibleItems = useSelector((state) => state.items);
+  const total = visibleItems.reduce(
+  (accumulator, currentValue) => 
+    accumulator + 
+    (currentValue.useHours ? currentValue.item.priceHour : currentValue.item.priceDay)
+     * currentValue.amount,
+    0,
+  );
+  console.log("Printing cart");
+  console.log(visibleItems);
 
 
   return (
@@ -19,8 +26,8 @@ export default function ShoppingCart() {
           {/* Cart Items */}
           <div className="card mb-4">
             <div className="card-body">
-              {visibleItems.map((itemWithDates) => (
-                <OrderCard key= { "c_" + itemWithDates.item.id.toString() + "_" + itemWithDates.item.headerTitle.toString() } itemWithDates={ itemWithDates }/>
+              {visibleItems.map((itemWithDates, index) => (
+                <OrderCard key= { `cart-item-${itemWithDates.item.id}-${itemWithDates.useHours}-${itemWithDates.amount}-${index}` } itemWithDates={ itemWithDates } cartID={ index }/>
               ))}
             </div>
           </div>
@@ -46,7 +53,7 @@ export default function ShoppingCart() {
             <div className="card-body">
               <div className="d-flex justify-content-between mb-4" style={{ fontSize: "1.5rem" }}>
                 <strong>Всього</strong>
-                <strong>$229.97</strong>
+                <strong>{total}$</strong>
               </div>
               <div className="d-flex justify-content-center">
                 <button className="btn hover-shadow" style={{

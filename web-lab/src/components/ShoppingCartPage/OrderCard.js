@@ -1,9 +1,16 @@
 
 import { ClassProperty } from "../CatalogPage/ClassProperty";
+import { useDispatch } from "react-redux";
+import { removeCartItem } from "../../redux/actions";
 
 
-export default function OrderCard({ itemWithDates }) {
+export default function OrderCard({ itemWithDates, cartID }) {
+  const dispatch = useDispatch();
 
+  const handleItemRemove = () => {
+    console.log(`Deleting item ${cartID}`);
+    dispatch(removeCartItem(cartID));
+  };
 
   return (
     <div className="row cart-item py-2">
@@ -23,7 +30,7 @@ export default function OrderCard({ itemWithDates }) {
       </div>
       <div className="col-md-2 text-end" style={{ marginBottom: "0rem" }}>
         <p className="fw-bold">{((itemWithDates.useHours ? itemWithDates.item.priceHour : itemWithDates.item.priceDay) * itemWithDates.amount).toString() + "$"}</p>
-        <button className="btn btn-sm btn-outline-danger">
+        <button onClick={handleItemRemove} className="btn btn-sm btn-outline-danger">
           <i className="bi bi-trash"></i>
         </button>
       </div>

@@ -5,6 +5,10 @@ import { useCatalogDataContext } from "../components/CatalogPage/CatalogDataCont
 import { WeightProperty } from "../components/CatalogPage/WeightProperty";
 import { ClassProperty } from "../components/CatalogPage/ClassProperty";
 
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../redux/actions";
+import { ItemWithDates } from "../components/ShoppingCartPage/ItemWithDates";
+
 export default function ItemPage() {
   const { items, displayElementID } = useCatalogDataContext();
   const item = items.find((el) => String(el.id) === String(displayElementID));
@@ -16,6 +20,18 @@ export default function ItemPage() {
   const count = Math.max(0, Number(rentDuration) || 0);
   const pricePerTimeUnit = rentTimeUnit === "d" ? item.priceDay : item.priceHour;
   const rentPrice = count * pricePerTimeUnit;
+
+
+
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    const newItem = new ItemWithDates(item, 
+      rentTimeUnit === "d" ? false : true, 
+      rentDuration
+    );
+    
+    dispatch(addCartItem(newItem));
+  };
 
 
 
@@ -114,23 +130,26 @@ export default function ItemPage() {
                 Назад
             </button>
           </Link>
-          <button
-            type="button"
-            className="btn hover-shadow"
-            style={{
-              background: 'rgb(66, 66, 66)',
-              color: '#ffffff',
-              fontSize: '18px',
-              padding: '10px 20px',
-              borderRadius: '16px',
-              width: '140px',
-              height: '50px',
-              fontWeight: 'bold',
-              border: 'none',
-            }}
-          >
-            В корзину
-          </button>
+          <Link to="/shopping-cart">
+            <button
+              type="button"
+              className="btn hover-shadow"
+              onClick={handleAddToCart}
+              style={{
+                background: 'rgb(66, 66, 66)',
+                color: '#ffffff',
+                fontSize: '18px',
+                padding: '10px 20px',
+                borderRadius: '16px',
+                width: '140px',
+                height: '50px',
+                fontWeight: 'bold',
+                border: 'none',
+              }}
+            >
+              В корзину
+            </button>
+          </Link>
         </div>
       </div>
     </div>
