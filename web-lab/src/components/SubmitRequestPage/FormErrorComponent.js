@@ -11,6 +11,7 @@ export default function FormErrorComponent({ errors, submitCount }) {
   const fieldNames = {
     name: "Ім'я",
     surname: "Прізвище",
+    countries: "Кількість держав",
     email: "Електронна пошта",
     phone: "Номер телефону",
     payer: "Замовник",

@@ -13,6 +13,10 @@ const validationSchema = Yup.object({
     .min(2, 'Занадто коротке')
     .max(50, 'Занадто довге')
     .required("Прізвище є обов'язковим полем."),
+  countries: Yup.number()
+    .typeError("Це поле має бути числом.")
+    .min(1, "Значення має бути більшим за 0.")
+    .positive("Кількість має бути більшою за нуль."),
   email: Yup.string()
     .email("Електронна пошта вказана неправильно.")
     .required("Електронна пошта є обов'язковою."),
@@ -26,6 +30,7 @@ export default function SubmitRequestPage() {
     initialValues: {
       name: '',
       surname: '',
+      countries: 1,
       email: '',
       phone: '',
       payer: 'Фізична особа',
@@ -81,6 +86,22 @@ export default function SubmitRequestPage() {
               />
               <label htmlFor="bct-float-surname">Прізвище</label>
               <div className="invalid-feedback">{formik.errors.surname}</div>
+            </div>
+          </div>
+
+
+          <div className="col-sm-6">
+            <div className="form-floating">
+              <input
+                type="text"
+                className={`form-control ${formik.touched.countries && formik.errors.countries ? 'is-invalid' : ''}`}
+                id="bct-float-countries"
+                placeholder="Скільки держав плануєте відвідати"
+                autoComplete="family-name"
+                {...formik.getFieldProps('countries')}
+              />
+              <label htmlFor="bct-float-surname">Скільки держав плануєте відвідати</label>
+              <div className="invalid-feedback">{formik.errors.countries}</div>
             </div>
           </div>
 
