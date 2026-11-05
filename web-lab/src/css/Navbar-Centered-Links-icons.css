@@ -191,3 +191,16 @@
      background-color: #f8f9fa;
      border-radius: 10px;
  }
+
+
+
+.bct-float { --bs-card-border-radius: 1.25rem; width: 100%; max-width: 620px; }
+.bct-float-msg { height: 140px; }
+.bct-float-form .form-control:focus, .bct-float-form .form-select:focus { border-color: #9d8be8; box-shadow: 0 0 0 .25rem rgba(91, 63, 209, .25); }
+.bct-float-status { color: #4a32b0; }
+.bct-float-send.btn {
+  --bs-btn-color: #fff; --bs-btn-bg: #5b3fd1; --bs-btn-border-color: #5b3fd1;
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #4a32b0; --bs-btn-hover-border-color: #4a32b0;
+  --bs-btn-active-color: #fff; --bs-btn-active-bg: #3d2894; --bs-btn-active-border-color: #3d2894;
+  --bs-btn-focus-shadow-rgb: 91, 63, 209;
+}
