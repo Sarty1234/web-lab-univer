@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import FormErrorComponent from '../components/SubmitRequestPage/FormErrorComponent';
+import { useNavigate } from 'react-router-dom';
 
 
 const validationSchema = Yup.object({
@@ -26,6 +27,10 @@ const validationSchema = Yup.object({
 });
 
 export default function SubmitRequestPage() {
+  
+  const navigate = useNavigate();
+
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -38,8 +43,8 @@ export default function SubmitRequestPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log("Форма успішно відправлена:", values);
-      alert("Замовлення успішно прийнято!");
+      console.log("Форма відправлена:", values);
+      navigate('/order-success');
     },
   });
 

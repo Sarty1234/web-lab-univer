@@ -16,6 +16,7 @@ import ItemPage from './Pages/ItemPage.js'
 import Footer from './components/Footer.js'
 import ShoppingCart from './Pages/ShoppingCart.js';
 import SubmitRequestPage from './Pages/SubmitRequestPage.js';
+import OrderSuccessPage from './Pages/OrderSuccessPage.js';
 import { Provider } from 'react-redux';
 import { store } from "./redux/store.js"
 
@@ -30,12 +31,13 @@ function App() {
         <CatalogDataProvider>
           
           <Routes>
-            {/* <Route path="/" element={<MainPage />} /> */}
-            <Route path="/" element={<SubmitRequestPage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/about-ship" element={<ItemPage />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/ordering" element={<SubmitRequestPage />} />
+            <Route path="/submit-request" element={<SubmitRequestPage />} />
+            <Route path="/order-success" element={<OrderSuccessPage />} />
           </Routes>
 
           

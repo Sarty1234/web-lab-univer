@@ -56,17 +56,19 @@ export default function ShoppingCart() {
                 <strong>{total}$</strong>
               </div>
               <div className="d-flex justify-content-center">
-                <button className="btn hover-shadow" style={{
-                  background: 'rgb(66, 66, 66)',
-                  color: '#ffffff',
-                  fontSize: '18px',
-                  padding: '10px 20px',
-                  borderRadius: '16px',
-                  fontWeight: 'bold',
-                  border: 'none',
-                }}>
-                  Оформити замовлення
-                </button>
+                <Link to="/submit-request">
+                  <button className="btn hover-shadow" style={{
+                    background: 'rgb(66, 66, 66)',
+                    color: '#ffffff',
+                    fontSize: '18px',
+                    padding: '10px 20px',
+                    borderRadius: '16px',
+                    fontWeight: 'bold',
+                    border: 'none',
+                  }}>
+                    Оформити замовлення
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
