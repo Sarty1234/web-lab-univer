@@ -1,3 +1,7 @@
+
+
+
+import axios from 'axios';
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -42,9 +46,24 @@ export default function SubmitRequestPage() {
       message: '',
     },
     validationSchema,
-    onSubmit: (values) => {
-      console.log("Форма відправлена:", values);
-      navigate('/order-success');
+    onSubmit: async (values) => {
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const orderAPIUrl = process.env.REACT_APP_API_ORDER_URI;
+      const requestUrl = apiUrl + orderAPIUrl;
+
+      try {
+        const response = await axios.post(requestUrl, values);
+        const isSuccess = response.status >= 200 && response.status < 300 ? true : false;
+        // isSuccess = true;
+
+        if (isSuccess) {
+          console.log("Дані успішно надіслано:", isSuccess);
+          navigate('/order-success');
+        }
+      } catch (error) {
+        console.error("Помилка при відправці:", error);
+        alert("Не вдалося надіслати замовлення. Спробуйте пізніше.");
+      }
     },
   });
 
